@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BODHI HOME - BODHI MIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 防止文本被意外选中，提升应用沉浸感 */
+        body {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        /* 自定义高亮颜色 */
+        ::selection {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        /* 隐藏滚动条 */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="w-full h-screen overflow-hidden bg-[#111] text-white font-sans flex relative">
+
+    <!-- ================= 左侧固定导航栏 (Fixed Left Sidebar) ================= -->
+    <nav class="w-64 h-full flex-shrink-0 bg-gradient-to-r from-black/90 to-transparent backdrop-blur-sm flex flex-col justify-between py-8 pl-8 pr-4 z-50 relative border-r border-white/5">
+        <!-- Top Logo -->
+        <div class="tracking-widest font-bold text-xl uppercase font-serif">
+            BODHI HOME
+        </div>
+
+        <!-- Navigation Menu -->
+        <ul class="flex flex-col gap-6 mt-12 flex-grow" id="nav-menu">
+            <li>
+                <button data-id="top" class="nav-btn text-left transition-all duration-300 group flex flex-col opacity-100 pl-2 border-l-2 border-white">
+                    <div class="flex flex-col leading-tight">
+                        <span class="cn-text font-medium tracking-wider text-sm tracking-widest text-white">概述</span>
+                        <span class="en-text font-serif italic text-xs mt-1 text-gray-200">Top</span>
+                    </div>
+                </button>
+            </li>
+            <li>
+                <button data-id="benefit" class="nav-btn text-left transition-all duration-300 group flex flex-col opacity-40 hover:opacity-100 hover:pl-1">
+                    <div class="flex flex-col leading-tight">
+                        <span class="cn-text font-medium tracking-wider text-sm tracking-widest text-gray-300">核心优势</span>
+                        <span class="en-text font-serif italic text-xs mt-1 text-gray-500">Core Benefits</span>
+                    </div>
+                </button>
+            </li>
+            <li>
+                <button data-id="howto" class="nav-btn text-left transition-all duration-300 group flex flex-col opacity-40 hover:opacity-100 hover:pl-1">
+                    <div class="flex flex-col leading-tight">
+                        <span class="cn-text font-medium tracking-wider text-sm tracking-widest text-gray-300">如何实现</span>
+                        <span class="en-text font-serif italic text-xs mt-1 text-gray-500">How to</span>
+                    </div>
+                </button>
+            </li>
+            <li>
+                <button data-id="plan" class="nav-btn text-left transition-all duration-300 group flex flex-col opacity-40 hover:opacity-100 hover:pl-1">
+                    <div class="flex flex-col leading-tight">
+                        <span class="cn-text font-medium tracking-wider text-sm tracking-widest text-gray-300">步骤01 平面规划</span>
+                        <span class="en-text font-serif italic text-xs mt-1 text-gray-500">Step01 Plan</span>
+                    </div>
+                </button>
+            </li>
+            <li>
+                <button data-id="exterior" class="nav-btn text-left transition-all duration-300 group flex flex-col opacity-40 hover:opacity-100 hover:pl-1">
+                    <div class="flex flex-col leading-tight">
+                        <span class="cn-text font-medium tracking-wider text-sm tracking-widest text-gray-300">步骤02 室外方案</span>
+                        <span class="en-text font-serif italic text-xs mt-1 text-gray-500">Step02 Exterior</span>
+                    </div>
+                </button>
+            </li>
+            <li>
+                <button data-id="interior" class="nav-btn text-left transition-all duration-300 group flex flex-col opacity-40 hover:opacity-100 hover:pl-1">
+                    <div class="flex flex-col leading-tight">
+                        <span class="cn-text font-medium tracking-wider text-sm tracking-widest text-gray-300">步骤03 内部空间</span>
+                        <span class="en-text font-serif italic text-xs mt-1 text-gray-500">Step03 Interior</span>
+                    </div>
+                </button>
+            </li>
+            <li>
+                <button data-id="plus" class="nav-btn text-left transition-all duration-300 group flex flex-col opacity-40 hover:opacity-100 hover:pl-1">
+                    <div class="flex flex-col leading-tight">
+                        <span class="cn-text font-medium tracking-wider text-sm tracking-widest text-gray-300">步骤04 增值服务</span>
+                        <span class="en-text font-serif italic text-xs mt-1 text-gray-500">Step04 Plus up item</span>
+                    </div>
+                </button>
+            </li>
+            <li>
+                <button data-id="quality" class="nav-btn text-left transition-all duration-300 group flex flex-col opacity-40 hover:opacity-100 hover:pl-1">
+                    <div class="flex flex-col leading-tight">
+                        <span class="cn-text font-medium tracking-wider text-sm tracking-widest text-gray-300">品质与保障</span>
+                        <span class="en-text font-serif italic text-xs mt-1 text-gray-500">Quality & Guarantee</span>
+                    </div>
+                </button>
+            </li>
+        </ul>
+
+        <!-- Bottom Logo -->
+        <div class="mt-8">
+            <h1 class="text-4xl font-serif tracking-widest mb-1">BODHI<br/><span class="text-4xl">MIC</span></h1>
+            <p class="text-[10px] tracking-widest text-gray-400">Modular Integrated Construction</p>
+        </div>
+    </nav>
+
+    <!-- ================= 底部悬浮操作栏 (Bottom Fixed Action Bar) ================= -->
+    <div class="absolute bottom-8 right-8 z-50 flex gap-4">
+        <button class="bg-[#2a2a30]/90 backdrop-blur-md hover:bg-[#3a3a40] transition-colors border border-white/10 px-6 py-4 rounded flex items-center gap-4 group">
+            <div class="w-1.5 h-1.5 rounded-full bg-white/50 group-hover:bg-white"></div>
+            <div class="flex flex-row items-baseline gap-2 leading-tight text-sm">
+                <span class="font-medium tracking-wider">获取资料信息</span>
+                <span class="font-serif italic text-xs text-gray-400">Catalog</span>
+            </div>
+            <!-- ChevronRight SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 opacity-50"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <button class="bg-[#2a2a30]/90 backdrop-blur-md hover:bg-[#3a3a40] transition-colors border border-white/10 px-6 py-4 rounded flex items-center gap-4 group">
+            <div class="w-1.5 h-1.5 rounded-full bg-white/50 group-hover:bg-white"></div>
+            <div class="flex flex-row items-baseline gap-2 leading-tight text-sm">
+                <span class="font-medium tracking-wider">来场预约</span>
+                <span class="font-serif italic text-xs text-gray-400">Reservation</span>
+            </div>
+            <!-- ChevronRight SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 opacity-50"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+    </div>
+
+    <!-- ================= 主内容区域 (Main Content Area) ================= -->
+    <main class="flex-grow h-full relative" id="main-content">
+        
+        <!-- --- Section: TOP (首页) --- -->
+        <div id="section-top" class="content-section absolute inset-0 transition-opacity duration-1000 opacity-100 z-10">
+            <div class="absolute inset-0 bg-black/40 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000&auto=format&fit=crop" alt="Blueprint" class="w-full h-full object-cover" />
+            
+            <div class="absolute bottom-32 left-16 z-20 max-w-xl">
+                <h2 class="text-2xl font-serif italic mb-6">UNIT TECHNOLOGY | 单元集成技术</h2>
+                <h3 class="text-4xl leading-tight font-light tracking-widest mb-8">
+                    以工业化、绿色化、数字化，<br/>引领乡村住房新标准。
+                </h3>
+                <p class="text-sm leading-loose text-gray-300 tracking-wider">
+                    博笛智家是凯昆科技集团旗下的住宅品牌，中国领先的单元集成住宅制造企业。<br/>
+                    通过自研的智能工业化产线，打造建筑工业化住宅产品 BODHIMIC。<br/>
+                    我们拥有来自各学科的硕博士研发团队，深耕单元建筑的核心技术，<br/>
+                    为您创造可持续价值的“好房子”。<br/>
+                    即使时间流逝，住宅的价值持续存在，提供让您安心舒适生活超过60年的绿色低碳住宅。
+                </p>
+            </div>
+
+            <div class="absolute right-8 bottom-32 z-20">
+                <button class="bg-[#2a2a30]/80 backdrop-blur-md hover:bg-white/10 transition px-6 py-4 flex items-center gap-6 border border-white/20">
+                    <div class="flex flex-col leading-tight text-sm">
+                        <span class="font-medium tracking-wider">通过视频了解 BODHI MIC</span>
+                        <span class="font-serif italic text-xs text-gray-400">Special Movie</span>
+                    </div>
+                    <!-- MonitorPlay SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 stroke-[1]"><path d="m10 7 5 3-5 3Z"/><rect width="20" height="14" x="2" y="3" rx="2"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- --- Section: BENEFIT (核心优势) --- -->
+        <div id="section-benefit" class="content-section absolute inset-0 transition-opacity duration-1000 bg-[#1a1a1c] opacity-0 z-0 pointer-events-none">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop" alt="Shadow texture" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay" />
+            
+            <div class="absolute top-1/2 -translate-y-1/2 left-16 z-20">
+                <div class="flex flex-col leading-tight">
+                    <span class="font-medium tracking-wider text-3xl mb-4">专家团队联合研发</span>
+                    <span class="font-serif italic text-xl mb-8 block text-gray-500">Core Benefits</span>
+                </div>
+                <h3 class="text-4xl font-light tracking-widest mb-8 mt-4">的核心优势</h3>
+                <p class="text-sm leading-loose text-gray-400 max-w-md">
+                    BODHI MIC 是由设计师精心设计的房子，他们利用“经验”和“专业”精心打造的理想住宅。<br/>
+                    从设想到建造结束，五大优势保证了交付一套有生活的房子。
+                </p>
+            </div>
+
+            <!-- 交叉圆环布局 -->
+            <div class="absolute top-1/2 right-24 -translate-y-1/2 w-[600px] h-[600px] z-20">
+                <div class="absolute top-[5%] left-[5%] w-[250px] h-[250px] rounded-full border border-white/15 bg-black/20 backdrop-blur-md flex flex-col items-center justify-center text-center p-6 transition duration-500 hover:bg-black/40 hover:border-white/40 cursor-pointer group">
+                    <span class="text-xs text-gray-400 mb-3 transition duration-500 group-hover:text-gray-200">主创设计师深思熟虑的方案</span>
+                    <span class="text-lg tracking-widest leading-relaxed text-gray-200 transition duration-500 group-hover:text-white">极致打磨的设计<br/>所见即所得</span>
+                </div>
+                <div class="absolute top-[5%] right-[5%] w-[250px] h-[250px] rounded-full border border-white/15 bg-black/20 backdrop-blur-md flex flex-col items-center justify-center text-center p-6 transition duration-500 hover:bg-black/40 hover:border-white/40 cursor-pointer group">
+                    <span class="text-xs text-gray-400 mb-3 transition duration-500 group-hover:text-gray-200">缩短交付时间</span>
+                    <span class="text-lg tracking-widest leading-relaxed text-gray-200 transition duration-500 group-hover:text-white">品质提升<br/>时间大幅节省</span>
+                </div>
+                <div class="absolute bottom-[5%] left-[5%] w-[250px] h-[250px] rounded-full border border-white/15 bg-black/20 backdrop-blur-md flex flex-col items-center justify-center text-center p-6 transition duration-500 hover:bg-black/40 hover:border-white/40 cursor-pointer group">
+                    <span class="text-xs text-gray-400 mb-3 transition duration-500 group-hover:text-gray-200">工厂产品级的工艺</span>
+                    <span class="text-lg tracking-widest leading-relaxed text-gray-200 transition duration-500 group-hover:text-white">和传统不在一个维度的<br/>性能与品质</span>
+                </div>
+                <div class="absolute bottom-[5%] right-[5%] w-[250px] h-[250px] rounded-full border border-white/15 bg-black/20 backdrop-blur-md flex flex-col items-center justify-center text-center p-6 transition duration-500 hover:bg-black/40 hover:border-white/40 cursor-pointer group">
+                    <span class="text-xs text-gray-400 mb-3 transition duration-500 group-hover:text-gray-200">因为是设计师设计住宅</span>
+                    <span class="text-lg tracking-widest leading-relaxed text-gray-200 transition duration-500 group-hover:text-white">再版时也更<br/>容易找到买家</span>
+                </div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] rounded-full border border-white/20 bg-black/30 backdrop-blur-lg flex flex-col items-center justify-center text-center p-6 z-10 transition duration-500 hover:bg-black/50 hover:border-white/50 cursor-pointer shadow-[0_0_30px_rgba(0,0,0,0.5)] group">
+                    <span class="text-sm text-gray-300 mb-3 transition duration-500 group-hover:text-gray-100">全房所需产品可选</span>
+                    <span class="text-2xl tracking-widest leading-relaxed text-white">预算资金<br/>更清晰</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- --- Section: HOW TO (如何实现) --- -->
+        <div id="section-howto" class="content-section absolute inset-0 transition-opacity duration-1000 bg-black opacity-0 z-0 pointer-events-none">
+            <div class="grid grid-cols-3 grid-rows-2 h-full w-full opacity-40">
+                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="family" />
+                <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="dog" />
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="couple" />
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="cooking" />
+                <img src="https://images.unsplash.com/photo-1595085610896-1ed098b671a5?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="interior" />
+                <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="child" />
+            </div>
+            
+            <div class="absolute top-1/2 -translate-y-1/2 left-16 z-20">
+                <div class="flex flex-col leading-tight">
+                    <span class="font-medium tracking-wider text-2xl mb-4">你理想的豪宅只需</span>
+                    <span class="font-serif italic text-xl mb-6 block text-gray-400">How to</span>
+                </div>
+                <h3 class="text-4xl font-light tracking-widest mb-6">四步就诞生了</h3>
+                <p class="text-sm leading-loose text-gray-300 max-w-xs">
+                    基于精心挑选的计划，选择过程充满乐趣，与家人一起。<br/>相比建造定制房屋，会议次数更少，建房也更简单顺畅。<br/>这取决于你自己。
+                </p>
+            </div>
+
+            <div class="absolute top-1/2 right-32 -translate-y-1/2 flex flex-col gap-4 z-20 w-[400px]">
+                <div class="bg-[#2a2a30]/80 backdrop-blur-md p-6 rounded cursor-pointer hover:bg-[#3a3a40] transition border border-white/10 flex items-center justify-between group">
+                    <div class="flex items-center gap-6">
+                        <span class="text-sm text-gray-400 italic font-serif">步骤</span>
+                        <span class="text-3xl font-serif italic">01</span>
+                        <span class="text-lg tracking-wider">从不同角度选择计划</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400 group-hover:text-white transition">
+                        景观 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                </div>
+                <div class="bg-[#2a2a30]/80 backdrop-blur-md p-6 rounded cursor-pointer hover:bg-[#3a3a40] transition border border-white/10 flex items-center justify-between group">
+                    <div class="flex items-center gap-6">
+                        <span class="text-sm text-gray-400 italic font-serif">步骤</span>
+                        <span class="text-3xl font-serif italic">02</span>
+                        <span class="text-lg tracking-wider">选择外观效果</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400 group-hover:text-white transition">
+                        景观 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                </div>
+                <div class="bg-[#2a2a30]/80 backdrop-blur-md p-6 rounded cursor-pointer hover:bg-[#3a3a40] transition border border-white/10 flex items-center justify-between group">
+                    <div class="flex items-center gap-6">
+                        <span class="text-sm text-gray-400 italic font-serif">步骤</span>
+                        <span class="text-3xl font-serif italic">03</span>
+                        <span class="text-lg tracking-wider">选择室内厨房</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400 group-hover:text-white transition">
+                        景观 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                </div>
+                <div class="bg-[#2a2a30]/80 backdrop-blur-md p-6 rounded cursor-pointer hover:bg-[#3a3a40] transition border border-white/10 flex items-center justify-between group">
+                    <div class="flex items-center gap-6">
+                        <span class="text-sm text-gray-400 italic font-serif">步骤</span>
+                        <span class="text-3xl font-serif italic">04</span>
+                        <span class="text-lg tracking-wider">选项 附加物品</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm text-gray-400 group-hover:text-white transition">
+                        景观 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- --- Section: PLAN (步骤01 平面规划 - 支持鼠标滚轮滑动与右侧划出动画) --- -->
+        <div id="section-plan" class="content-section absolute inset-0 flex flex-col transition-opacity duration-1000 opacity-0 z-0 pointer-events-none overflow-hidden">
+            <div class="absolute top-8 right-16 text-3xl font-serif italic text-gray-400 opacity-50 z-40 pointer-events-none">Step01 - Plan / 步骤1 - 计划</div>
+            
+            <!-- 子页面 1：方案 1 -->
+            <div id="plan-sub-1" class="plan-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-100 translate-x-0 z-10">
+                <div class="w-[40%] bg-[#1a1a1c] relative p-16 flex flex-col justify-end">
+                    <div class="absolute top-1/4 left-0 w-full px-8">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop" alt="House Exterior 1" class="w-full h-auto shadow-2xl" />
+                    </div>
+                    <div class="z-20 relative">
+                        <h3 class="text-xl font-serif italic text-gray-400 mb-2">Yosemune / 平也</h3>
+                        <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">不知不觉家人聚集，<br/>为客厅增加免费空间。</h2>
+                        <p class="text-sm text-gray-400 leading-loose">
+                            在明亮的LDK朝南，有一个宽敞的多角区域，家庭可以<br/>在这里享受自由创意。<br/>
+                            有了充足的储物空间，你可以过上美好舒适的生活。
+                        </p>
+                    </div>
+                </div>
+                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-16 flex flex-col justify-center">
+                    <div class="flex flex-col leading-tight mb-8">
+                        <span class="font-medium tracking-wider text-2xl font-light text-black">示例方案 1</span>
+                        <span class="font-serif italic text-xl italic font-serif text-gray-500">Model Plan 1</span>
+                    </div>
+                    <div class="flex gap-12 items-center">
+                        <div class="w-2/3 border border-gray-300 p-4 bg-white/50 relative">
+                            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=800&auto=format&fit=crop" alt="Floor plan placeholder" class="w-full opacity-60 grayscale" />
+                            <div class="absolute top-1/4 -right-12 w-48 text-xs bg-white p-2 shadow-sm border-l-2 border-black">多目的空间，贴合生活方式。可用作工作区。</div>
+                            <div class="absolute bottom-1/4 -right-12 w-48 text-xs bg-white p-2 shadow-sm border-l-2 border-black">大型主卧，季节衣物轻松收纳。</div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 tracking-widest mt-8 border-t border-gray-300 pt-4 w-2/3">
+                        Data | 延床面积: 99.76㎡ (30.18坪)
+                    </div>
+                </div>
+            </div>
+
+            <!-- 子页面 2：方案 2 -->
+            <div id="plan-sub-2" class="plan-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-0 translate-x-1/4 z-0 pointer-events-none">
+                <div class="w-[40%] bg-[#1a1a1c] relative p-16 flex flex-col justify-end">
+                    <div class="absolute top-1/4 left-0 w-full px-8">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop" alt="House Exterior 2" class="w-full h-auto shadow-2xl" />
+                    </div>
+                    <div class="z-20 relative">
+                        <h3 class="text-xl font-serif italic text-gray-400 mb-2">Kirizuma / 切妻</h3>
+                        <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">动静分离的设计，<br/>享受私密的二层时光。</h2>
+                        <p class="text-sm text-gray-400 leading-loose">
+                            将主要的社交功能区集中于首层，<br/>二层则作为绝对的私密休息区。<br/>
+                            通过挑空设计，让一二层的空气与光线自由流转。
+                        </p>
+                    </div>
+                </div>
+                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-16 flex flex-col justify-center">
+                    <div class="flex flex-col leading-tight mb-8">
+                        <span class="font-medium tracking-wider text-2xl font-light text-black">示例方案 2</span>
+                        <span class="font-serif italic text-xl italic font-serif text-gray-500">Model Plan 2</span>
+                    </div>
+                    <div class="flex gap-12 items-center">
+                        <div class="w-2/3 border border-gray-300 p-4 bg-white/50 relative">
+                            <img src="https://images.unsplash.com/photo-1628624747186-a941c476b7ef?q=80&w=800&auto=format&fit=crop" alt="Floor plan placeholder" class="w-full opacity-60 grayscale" />
+                            <div class="absolute top-1/2 -right-12 w-48 text-xs bg-white p-2 shadow-sm border-l-2 border-black">开放式中岛厨房，便于家庭互动交流。</div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 tracking-widest mt-8 border-t border-gray-300 pt-4 w-2/3">
+                        Data | 延床面积: 112.50㎡ (34.03坪)
+                    </div>
+                </div>
+            </div>
+
+            <!-- 子页面 3：方案 3 -->
+            <div id="plan-sub-3" class="plan-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-0 translate-x-1/4 z-0 pointer-events-none">
+                <div class="w-[40%] bg-[#1a1a1c] relative p-16 flex flex-col justify-end">
+                    <div class="absolute top-1/4 left-0 w-full px-8">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" alt="House Exterior 3" class="w-full h-auto shadow-2xl" />
+                    </div>
+                    <div class="z-20 relative">
+                        <h3 class="text-xl font-serif italic text-gray-400 mb-2">Kata-nagare / 片流</h3>
+                        <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">挑高宽敞的客厅，<br/>沐浴充足的自然光。</h2>
+                        <p class="text-sm text-gray-400 leading-loose">
+                            利用单坡屋顶的优势，打造极具震撼力的挑高客厅。<br/>
+                            即使在狭长的地块上，<br/>也能保证室内的通透与采光。
+                        </p>
+                    </div>
+                </div>
+                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-16 flex flex-col justify-center">
+                    <div class="flex flex-col leading-tight mb-8">
+                        <span class="font-medium tracking-wider text-2xl font-light text-black">示例方案 3</span>
+                        <span class="font-serif italic text-xl italic font-serif text-gray-500">Model Plan 3</span>
+                    </div>
+                    <div class="flex gap-12 items-center">
+                        <div class="w-2/3 border border-gray-300 p-4 bg-white/50 relative">
+                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop" alt="Floor plan placeholder" class="w-full opacity-60 grayscale" />
+                            <div class="absolute bottom-1/3 -right-12 w-48 text-xs bg-white p-2 shadow-sm border-l-2 border-black">通顶大落地窗，将室外自然风景引入室内。</div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 tracking-widest mt-8 border-t border-gray-300 pt-4 w-2/3">
+                        Data | 延床面积: 105.80㎡ (32.00坪)
+                    </div>
+                </div>
+            </div>
+
+            <!-- 子页面 4：方案 4 -->
+            <div id="plan-sub-4" class="plan-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-0 translate-x-1/4 z-0 pointer-events-none">
+                <div class="w-[40%] bg-[#1a1a1c] relative p-16 flex flex-col justify-end">
+                    <div class="absolute top-1/4 left-0 w-full px-8">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000&auto=format&fit=crop" alt="House Exterior 4" class="w-full h-auto shadow-2xl" />
+                    </div>
+                    <div class="z-20 relative">
+                        <h3 class="text-xl font-serif italic text-gray-400 mb-2">Rikuyane / 陆屋根</h3>
+                        <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">专属的顶层露台，<br/>延伸家庭户外边界。</h2>
+                        <p class="text-sm text-gray-400 leading-loose">
+                            平屋顶设计不仅带来现代简约的外观，<br/>更开辟出宽阔的屋顶露台。<br/>
+                            在这里进行烧烤、派对或家庭天文观测。
+                        </p>
+                    </div>
+                </div>
+                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-16 flex flex-col justify-center">
+                    <div class="flex flex-col leading-tight mb-8">
+                        <span class="font-medium tracking-wider text-2xl font-light text-black">示例方案 4</span>
+                        <span class="font-serif italic text-xl italic font-serif text-gray-500">Model Plan 4</span>
+                    </div>
+                    <div class="flex gap-12 items-center">
+                        <div class="w-2/3 border border-gray-300 p-4 bg-white/50 relative">
+                            <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2291?q=80&w=800&auto=format&fit=crop" alt="Floor plan placeholder" class="w-full opacity-60 grayscale" />
+                            <div class="absolute top-1/4 -right-12 w-48 text-xs bg-white p-2 shadow-sm border-l-2 border-black">室外楼梯直达屋顶花园，动线流畅。</div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 tracking-widest mt-8 border-t border-gray-300 pt-4 w-2/3">
+                        Data | 延床面积: 120.45㎡ (36.43坪)
+                    </div>
+                </div>
+            </div>
+
+            <!-- 子页面 5：方案 5 -->
+            <div id="plan-sub-5" class="plan-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-0 translate-x-1/4 z-0 pointer-events-none">
+                <div class="w-[40%] bg-[#1a1a1c] relative p-16 flex flex-col justify-end">
+                    <div class="absolute top-1/4 left-0 w-full px-8">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1000&auto=format&fit=crop" alt="House Exterior 5" class="w-full h-auto shadow-2xl" />
+                    </div>
+                    <div class="z-20 relative">
+                        <h3 class="text-xl font-serif italic text-gray-400 mb-2">Hiraya / 平屋</h3>
+                        <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">无障碍的生活动线，<br/>庭院与居住的融合。</h2>
+                        <p class="text-sm text-gray-400 leading-loose">
+                            将所有生活机能集中于单层空间，<br/>极致流畅的水平生活动线。<br/>
+                            无论对老人还是孩子，都是最安心的选择。
+                        </p>
+                    </div>
+                </div>
+                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-16 flex flex-col justify-center">
+                    <div class="flex flex-col leading-tight mb-8">
+                        <span class="font-medium tracking-wider text-2xl font-light text-black">示例方案 5</span>
+                        <span class="font-serif italic text-xl italic font-serif text-gray-500">Model Plan 5</span>
+                    </div>
+                    <div class="flex gap-12 items-center">
+                        <div class="w-2/3 border border-gray-300 p-4 bg-white/50 relative">
+                            <img src="https://images.unsplash.com/photo-1595085610896-1ed098b671a5?q=80&w=800&auto=format&fit=crop" alt="Floor plan placeholder" class="w-full opacity-60 grayscale" />
+                            <div class="absolute top-1/2 -right-12 w-48 text-xs bg-white p-2 shadow-sm border-l-2 border-black">环形动线设计，家务操作更加高效省力。</div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-500 tracking-widest mt-8 border-t border-gray-300 pt-4 w-2/3">
+                        Data | 延床面积: 88.60㎡ (26.80坪)
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧子导航 (悬浮于图纸区域之上) -->
+            <div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-12 font-serif italic text-xl pr-8 items-end z-40 text-gray-400">
+                <!-- 方案 1 -->
+                <button class="plan-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-32 group" data-index="0">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30] text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-100 translate-x-0">方案1 <span class="ml-2 opacity-50 text-xs font-serif italic">Plan 1</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-0 translate-x-4 group-hover:text-black">1</span>
+                </button>
+                <!-- 方案 2 -->
+                <button class="plan-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-32 group" data-index="1">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30] text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-0 translate-x-8 pointer-events-none">方案2 <span class="ml-2 opacity-50 text-xs font-serif italic">Plan 2</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-100 translate-x-0 group-hover:text-black">2</span>
+                </button>
+                <!-- 方案 3 -->
+                <button class="plan-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-32 group" data-index="2">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30] text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-0 translate-x-8 pointer-events-none">方案3 <span class="ml-2 opacity-50 text-xs font-serif italic">Plan 3</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-100 translate-x-0 group-hover:text-black">3</span>
+                </button>
+                <!-- 方案 4 -->
+                <button class="plan-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-32 group" data-index="3">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30] text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-0 translate-x-8 pointer-events-none">方案4 <span class="ml-2 opacity-50 text-xs font-serif italic">Plan 4</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-100 translate-x-0 group-hover:text-black">4</span>
+                </button>
+                <!-- 方案 5 -->
+                <button class="plan-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-32 group" data-index="4">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30] text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-0 translate-x-8 pointer-events-none">方案5 <span class="ml-2 opacity-50 text-xs font-serif italic">Plan 5</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-100 translate-x-0 group-hover:text-black">5</span>
+                </button>
+            </div>
+
+            <!-- 滚轮提示器 (细微的向下箭头提示可滑动) -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center opacity-50 animate-bounce pointer-events-none text-gray-500">
+                <span class="text-[10px] tracking-widest mb-1">Scroll</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+            </div>
+        </div>
+
+        <!-- --- Section: EXTERIOR (步骤02 室外方案) --- -->
+        <div id="section-exterior" class="content-section absolute inset-0 flex transition-opacity duration-1000 opacity-0 z-0 pointer-events-none">
+            <div class="w-[35%] bg-[#1a1a1c] relative p-16 flex flex-col justify-end pb-32">
+                <div class="absolute inset-0 opacity-10">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="texture" />
+                </div>
+                <div class="z-20 relative">
+                    <div class="flex flex-col leading-tight">
+                        <span class="font-medium tracking-wider text-sm text-gray-400 mb-4">室外</span>
+                        <span class="font-serif italic text-2xl font-serif italic mb-8 hidden">Exterior</span>
+                    </div>
+                    <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">用你喜欢的外观印象</h2>
+                    <p class="text-sm text-gray-400 leading-loose">
+                        基于单色调，整体建筑的<br/>色调。如外墙、排水沟、檐口和入口门廊，协调一致，营造出美丽的印象。<br/>
+                        耐候性和防污也是保持美丽的关键因素。<br/>
+                        它的设计非常适合路上的乘客。
+                    </p>
+                </div>
+            </div>
+            <div class="w-[65%] bg-[#f4f3ef] text-[#333] relative p-16 overflow-y-auto">
+                <div class="absolute top-8 right-16 text-3xl font-serif italic text-gray-400 opacity-50">Step02 - Exterior / 步骤2 - 外部</div>
+                <h3 class="text-xl mb-12 tracking-widest mt-8">四套单调服装</h3>
+                
+                <div class="grid grid-cols-2 gap-12">
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600&auto=format&fit=crop" alt="浅米色" class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105" />
+                        </div>
+                        <div class="flex justify-between items-baseline border-b border-gray-300 pb-2">
+                            <div>
+                                <span class="text-lg font-serif italic mr-2 text-gray-500">单调</span>
+                                <span class="text-xl font-bold tracking-widest">浅米色</span>
+                            </div>
+                            <span class="text-xs text-gray-400 flex items-center gap-1 group-hover:text-black transition">细节 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">单调浅米色</p>
+                    </div>
+                    
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop" alt="深棕色" class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105" />
+                        </div>
+                        <div class="flex justify-between items-baseline border-b border-gray-300 pb-2">
+                            <div>
+                                <span class="text-lg font-serif italic mr-2 text-gray-500">单调</span>
+                                <span class="text-xl font-bold tracking-widest">深棕色</span>
+                            </div>
+                            <span class="text-xs text-gray-400 flex items-center gap-1 group-hover:text-black transition">细节 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">单调深棕色</p>
+                    </div>
+                    
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=600&auto=format&fit=crop" alt="深灰" class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105" />
+                        </div>
+                        <div class="flex justify-between items-baseline border-b border-gray-300 pb-2">
+                            <div>
+                                <span class="text-lg font-serif italic mr-2 text-gray-500">单调</span>
+                                <span class="text-xl font-bold tracking-widest">深灰</span>
+                            </div>
+                            <span class="text-xs text-gray-400 flex items-center gap-1 group-hover:text-black transition">细节 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">单调深灰</p>
+                    </div>
+                    
+                    <div class="group cursor-pointer">
+                        <div class="overflow-hidden mb-4">
+                            <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2291?q=80&w=600&auto=format&fit=crop" alt="轻重音" class="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-105" />
+                        </div>
+                        <div class="flex justify-between items-baseline border-b border-gray-300 pb-2">
+                            <div>
+                                <span class="text-lg font-serif italic mr-2 text-gray-500">单调</span>
+                                <span class="text-xl font-bold tracking-widest">轻重音</span>
+                            </div>
+                            <span class="text-xs text-gray-400 flex items-center gap-1 group-hover:text-black transition">细节 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">单调的繁杂点缀</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- --- Section: INTERIOR (步骤03 内部空间 - 支持鼠标滚轮滑动与右侧划出动画) --- -->
+        <div id="section-interior" class="content-section absolute inset-0 flex flex-col transition-opacity duration-1000 opacity-0 z-0 pointer-events-none overflow-hidden">
+            <div class="absolute top-8 right-16 text-3xl font-serif italic text-white/50 z-40 drop-shadow-md pointer-events-none">Step03 - Interior / 步骤3 - 室内</div>
+            
+            <!-- 子页面 1：风格 (Style) -->
+            <div id="interior-sub-style" class="interior-sub-section absolute inset-0 transition-all duration-1000 ease-in-out opacity-100 translate-x-0 z-10">
+                <div class="grid grid-cols-2 grid-rows-2 h-full w-full relative">
+                    <!-- 风格 1：质朴 -->
+                    <div class="relative group overflow-hidden cursor-pointer border-r border-b border-white/10">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Rustic" />
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition"></div>
+                        <div class="absolute bottom-16 left-16 border-b border-white/30 pb-4 pr-16 transition-transform duration-500 group-hover:translate-x-2">
+                            <h3 class="text-4xl font-light tracking-widest mb-2 shadow-black drop-shadow-lg">质朴</h3>
+                            <p class="text-sm tracking-widest text-gray-200">有点粗犷，但不娇揉造作</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 风格 2：自然 -->
+                    <div class="relative group overflow-hidden cursor-pointer border-b border-white/10">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Natural" />
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition"></div>
+                        <div class="absolute bottom-16 right-16 text-right border-b border-white/30 pb-4 pl-16 transition-transform duration-500 group-hover:-translate-x-2">
+                            <h3 class="text-4xl font-light tracking-widest mb-2 shadow-black drop-shadow-lg">自然</h3>
+                            <p class="text-sm tracking-widest text-gray-200">木头的温暖是温暖的</p>
+                        </div>
+                    </div>
+
+                    <!-- 风格 3：北欧 -->
+                    <div class="relative group overflow-hidden cursor-pointer border-r border-white/10">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Nordic" />
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition"></div>
+                        <div class="absolute top-16 left-16 border-b border-white/30 pb-4 pr-16 transition-transform duration-500 group-hover:translate-x-2">
+                            <h3 class="text-4xl font-light tracking-widest mb-2 shadow-black drop-shadow-lg">北欧</h3>
+                            <p class="text-sm tracking-widest text-gray-200">柔软和极简的生活</p>
+                        </div>
+                    </div>
+
+                    <!-- 风格 4：现代 -->
+                    <div class="relative group overflow-hidden cursor-pointer border-white/10">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Modern" />
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition"></div>
+                        <div class="absolute top-16 right-16 text-right border-b border-white/30 pb-4 pl-16 transition-transform duration-500 group-hover:-translate-x-2">
+                            <h3 class="text-4xl font-light tracking-widest mb-2 shadow-black drop-shadow-lg">现代</h3>
+                            <p class="text-sm tracking-widest text-gray-200">沉稳与洗练的都会质感</p>
+                        </div>
+                    </div>
+
+                    <!-- 居中悬浮圆环文字块 (四种风格的统领说明) -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] bg-[#1a1a1c]/90 backdrop-blur-xl flex flex-col items-center justify-center text-center p-8 z-20 rounded-full shadow-[0_0_60px_rgba(0,0,0,0.8)] border border-white/10 pointer-events-none">
+                        <span class="font-serif italic text-xl text-gray-400 mb-4 tracking-widest">Style</span>
+                        <h2 class="text-2xl font-light tracking-widest leading-snug mb-4">表现"自我"<br/>的4种风格</h2>
+                        <p class="text-xs text-gray-400 leading-relaxed tracking-wider">
+                            LDK的室内风格，<br/>通过选择喜欢的颜色或材质。<br/>
+                            匹配室内色调，<br/>享受家具、照明的搭配乐趣。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 子页面 2：软装 (Furnish / Kitchen) -->
+            <div id="interior-sub-furnish" class="interior-sub-section absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 translate-x-1/4 z-0 pointer-events-none">
+                <div class="grid grid-cols-2 grid-rows-2 h-full w-full relative">
+                    <div class="relative group overflow-hidden bg-[#e8e6e1] border-r border-b border-white/10">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Collagia" />
+                        <div class="absolute bottom-8 right-12 text-right">
+                            <span class="text-xl font-bold tracking-widest text-[#333] drop-shadow bg-white/60 backdrop-blur px-4 py-2 border border-white/50">Collagia | TOCLAS</span>
+                        </div>
+                    </div>
+                    <div class="relative group overflow-hidden bg-[#111] border-b border-white/10">
+                        <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" alt="kitchenhouse" />
+                        <div class="absolute bottom-8 right-12 text-right max-w-sm">
+                            <h3 class="text-xl font-bold tracking-widest text-white drop-shadow-lg mb-3">Style Select Kitchen | kitchenhouse</h3>
+                            <p class="text-xs text-gray-300 tracking-wider leading-relaxed">与kitchenhouse的合作，仅限特定的方案。<br/>提供独家的风格定制厨房双色调选择。</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#1a1a1c] relative p-16 flex flex-col justify-center border-r border-white/10">
+                        <span class="font-serif italic text-2xl text-gray-400 mb-8">Kitchen</span>
+                        <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">表现"自我"的<br/>3种厨房</h2>
+                        <p class="text-sm text-gray-400 leading-loose max-w-sm">
+                            LDK的室内风格，<br/>希望通过家人喜欢的颜色或材质来选择。<br/>
+                            匹配包裹整个空间的室内色调，<br/>还可以享受家具、照明、艺术品的搭配乐趣。
+                        </p>
+                    </div>
+                    <div class="relative group overflow-hidden bg-[#f4f3ef]">
+                        <img src="https://images.unsplash.com/photo-1588854337221-4cfbbf34e402?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Noct" />
+                        <div class="absolute bottom-8 right-12 text-right">
+                            <span class="text-xl font-bold tracking-widest text-white drop-shadow-lg bg-black/60 backdrop-blur px-4 py-2 border border-white/10">Noct | LIXIL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 子页面 3：定制 (Custom) -->
+            <div id="interior-sub-custom" class="interior-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-0 translate-x-1/4 z-0 pointer-events-none">
+                <div class="w-[40%] bg-[#1a1a1c] relative p-16 flex flex-col justify-center border-r border-white/10">
+                    <span class="font-serif italic text-2xl text-gray-400 mb-8">Custom</span>
+                    <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">精益求精的细节<br/>定制您的专属生活</h2>
+                    <p class="text-sm text-gray-400 leading-loose">
+                        从极致的收纳空间到考究的材质选择，<br/>我们提供全方位的定制化服务。<br/>
+                        根据家庭的生活习惯与动线规划，<br/>为您打造兼具美感与实用性的专属功能区。
+                    </p>
+                </div>
+                <div class="w-[60%] relative group overflow-hidden bg-black">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4ea0d?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80" alt="Custom Walk-in Closet" />
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-16 left-16 border-l-2 border-white pl-6">
+                        <h3 class="text-2xl font-light tracking-widest text-white mb-2">定制收纳空间</h3>
+                        <p class="text-sm text-gray-300 font-serif italic">Maximize your lifestyle</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 子页面 4：全屋智能 (Smart Home) -->
+            <div id="interior-sub-smart" class="interior-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-0 translate-x-1/4 z-0 pointer-events-none">
+                <div class="w-[40%] bg-[#1a1a1c] relative p-16 flex flex-col justify-center border-r border-white/10">
+                    <span class="font-serif italic text-2xl text-gray-400 mb-8">Intelligence</span>
+                    <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">更懂生活的<br/>智慧房屋</h2>
+                    <p class="text-sm text-gray-400 leading-loose">
+                        不仅仅是设备堆叠，让房屋充满智慧。<br/>
+                        搭载 Home AI Core 家庭私有算力中枢，<br/>
+                        端侧运行 130 亿参数大模型。<br/>
+                        从环境光实时调节到睡眠温控算法，<br/>
+                        让设备系统的联动，无缝融入日常起居。
+                    </p>
+                </div>
+                <div class="w-[60%] relative group overflow-hidden bg-black">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60" alt="Smart Home Interface" />
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-16 left-16 border-l-2 border-white pl-6">
+                        <h3 class="text-2xl font-light tracking-widest text-white mb-2">1315 种设备全屋联动</h3>
+                        <p class="text-sm text-gray-300 font-serif italic">Seamless Integration</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧子导航 (悬浮于所有内部Grid之上) -->
+            <div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-12 text-white/40 font-serif italic text-xl pr-8 items-end z-40">
+                <!-- 风格 (Style) -->
+                <button class="interior-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-32 group" data-index="0">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30]/90 backdrop-blur text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-100 translate-x-0">风格 <span class="ml-2 opacity-50 text-xs font-serif italic">Style</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-0 translate-x-4 group-hover:text-white">S</span>
+                </button>
+
+                <!-- 软装 (Kitchen/Furnish) -->
+                <button class="interior-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-32 group" data-index="1">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30]/90 backdrop-blur text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-0 translate-x-8 pointer-events-none">软装 <span class="ml-2 opacity-50 text-xs font-serif italic">Furnish</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-100 translate-x-0 group-hover:text-white">F</span>
+                </button>
+
+                <!-- 定制 (Custom) -->
+                <button class="interior-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-32 group" data-index="2">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30]/90 backdrop-blur text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-0 translate-x-8 pointer-events-none">定制 <span class="ml-2 opacity-50 text-xs font-serif italic">Custom</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-100 translate-x-0 group-hover:text-white">C</span>
+                </button>
+
+                <!-- 全屋智能 (Smart Home) -->
+                <button class="interior-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-32 group" data-index="3">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30]/90 backdrop-blur text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-0 translate-x-8 pointer-events-none">智能 <span class="ml-2 opacity-50 text-xs font-serif italic">Smart</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-100 translate-x-0 group-hover:text-white">I</span>
+                </button>
+            </div>
+            
+            <!-- 滚轮提示器 (细微的向下箭头提示可滑动) -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center opacity-50 animate-bounce pointer-events-none">
+                <span class="text-[10px] tracking-widest mb-1">Scroll</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+            </div>
+        </div>
+
+        <!-- --- Section: PLUS UP ITEM (步骤04 增值服务 - 支持鼠标滚轮滑动与右侧划出动画) --- -->
+        <div id="section-plus" class="content-section absolute inset-0 flex flex-col transition-opacity duration-1000 opacity-0 z-0 pointer-events-none overflow-hidden bg-black">
+            <div class="absolute top-8 right-16 text-3xl font-serif italic text-white/70 z-40 drop-shadow-md pointer-events-none">Step04 - Plus up item</div>
+            
+            <!-- 子页面 1：零碳建筑 (Zero Carbon) -->
+            <div id="plus-sub-zerocarbon" class="plus-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-100 translate-x-0 z-10">
+                <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2000&auto=format&fit=crop" alt="Zero Carbon 现场作业" class="absolute inset-0 w-full h-full object-cover opacity-60" />
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1a1a1c]/90 via-[#1a1a1c]/60 to-transparent"></div>
+                
+                <div class="absolute bottom-32 left-16 z-20 max-w-xl">
+                    <div class="flex flex-col leading-tight">
+                        <span class="font-medium tracking-wider text-sm text-gray-400 mb-4 border-b border-gray-500 pb-2 inline-block">零碳建筑</span>
+                        <span class="font-serif italic text-2xl font-serif italic hidden">Zero Carbon</span>
+                    </div>
+                    <h3 class="text-4xl font-light tracking-widest mb-8 mt-6 text-white">实现零能耗房屋</h3>
+                    <p class="text-sm leading-loose text-gray-300 tracking-wider">
+                        实现零能耗房屋（ZEH）的重点是：<br/>
+                        “产生能源”、“节能用电”和“房屋隔热性能”。<br/>
+                        通过屋顶高效太阳能光伏板产生清洁能源，<br/>
+                        配合博笛智家高标准的单元结构隔热性能与智能蓄电池，<br/>
+                        大幅削减家庭整体能源消耗量，迈向可持续的未来生活。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 子页面 2：供暖制冷 (HVAC) -->
+            <div id="plus-sub-hvac" class="plus-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-0 translate-x-1/4 z-0 pointer-events-none">
+                <div class="w-[45%] bg-[#f4f3ef] relative p-16 flex flex-col justify-center text-[#333]">
+                    <div class="flex flex-col leading-tight">
+                        <span class="font-medium tracking-wider text-sm text-gray-500 mb-4 border-b border-gray-300 pb-2 inline-block">供暖制冷</span>
+                    </div>
+                    <h3 class="text-4xl font-light tracking-widest mb-8 mt-6">四季如春的温控体验</h3>
+                    <p class="text-sm leading-loose text-gray-600 tracking-wider">
+                        摒弃传统空调的局部冷热不均，<br/>
+                        采用全屋隐蔽式辐射供暖与柔性制冷系统。<br/>
+                        无论室外严寒酷暑，室内始终保持在最适宜人体感知的恒定温度。<br/>
+                        无风感、无噪音，为家人营造极致舒适的安居环境。
+                    </p>
+                </div>
+                <div class="w-[55%] relative">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop" alt="HVAC Comfort" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 bg-black/10"></div>
+                </div>
+            </div>
+
+            <!-- 子页面 3：家用电器 (Smart Appliances) -->
+            <div id="plus-sub-appliances" class="plus-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-0 translate-x-1/4 z-0 pointer-events-none">
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=2000&auto=format&fit=crop" alt="Smart Appliances" class="absolute inset-0 w-full h-full object-cover opacity-40" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                
+                <div class="absolute bottom-32 left-1/2 -translate-x-1/2 z-20 text-center w-full max-w-2xl">
+                    <span class="text-xl font-serif italic text-gray-400 mb-4 block">Smart Home</span>
+                    <h3 class="text-4xl font-light tracking-widest mb-6 text-white drop-shadow-lg">不仅仅是设备堆叠<br/>让房屋充满智慧</h3>
+                    <p class="text-sm leading-loose text-gray-300 tracking-wider">
+                        基于 Home AI Core 家庭私有算力中枢，端侧运行 130亿 参数大模型。<br/>
+                        智能家居是让设备系统的联动真正融入生活：<br/>
+                        学习灯光、环境光窗帘实时调节为护眼状态；<br/>
+                        1315 种设备无缝联动，全屋电器一声令下，即可响应。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 子页面 4：水生态系统 (Water Ecosystem) -->
+            <div id="plus-sub-water" class="plus-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-0 translate-x-1/4 z-0 pointer-events-none">
+                <div class="w-[60%] relative">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop" alt="Water Ecosystem" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#111]"></div>
+                </div>
+                <div class="w-[40%] bg-[#111] relative p-16 flex flex-col justify-center">
+                    <div class="flex flex-col leading-tight">
+                        <span class="font-medium tracking-wider text-sm text-gray-400 mb-4 border-b border-gray-600 pb-2 inline-block">水生态系统</span>
+                    </div>
+                    <h3 class="text-4xl font-light tracking-widest mb-8 mt-6 text-white">从源头呵护健康</h3>
+                    <p class="text-sm leading-loose text-gray-400 tracking-wider">
+                        前置过滤、中央净水、中央软水到末端直饮。<br/>
+                        构建全方位立体的家庭水生态系统。<br/>
+                        软水洗浴呵护肌肤与衣物，净水直饮保障饮食安全。<br/>
+                        有效去除水垢，延长全屋高端涉水家电的使用寿命。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 子页面 5：空气系统 (Air System) -->
+            <div id="plus-sub-air" class="plus-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-0 translate-x-1/4 z-0 pointer-events-none">
+                <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2000&auto=format&fit=crop" alt="Fresh Air" class="absolute inset-0 w-full h-full object-cover opacity-80" />
+                <div class="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white/90"></div>
+                
+                <div class="absolute top-1/2 -translate-y-1/2 left-16 z-20 max-w-xl text-[#333]">
+                    <div class="flex flex-col leading-tight">
+                        <span class="font-medium tracking-wider text-sm text-gray-500 mb-4 border-b border-gray-400 pb-2 inline-block">空气系统</span>
+                    </div>
+                    <h3 class="text-4xl font-light tracking-widest mb-8 mt-6">呼吸森林般的纯净</h3>
+                    <p class="text-sm leading-loose text-gray-600 tracking-wider font-medium">
+                        搭载医疗级高效HEPA滤网的智能新风系统，<br/>
+                        7x24小时不间断进行室内外空气置换。<br/>
+                        有效阻挡PM2.5、花粉、微尘及过敏原进入室内，<br/>
+                        并自动调节送风温湿度，让家时刻保持清新富氧状态。
+                    </p>
+                </div>
+            </div>
+
+            <!-- 右侧子导航 (悬浮于图纸区域之上) -->
+            <div class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-10 font-serif italic text-xl pr-8 items-end z-40 text-gray-400">
+                <button class="plus-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-48 group" data-index="0">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30] text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-100 translate-x-0">零碳建筑 <span class="ml-2 opacity-50 text-xs font-serif italic">Zero Carbon</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-0 translate-x-4 group-hover:text-white">K</span>
+                </button>
+                <button class="plus-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-48 group" data-index="1">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30] text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-0 translate-x-8 pointer-events-none">供暖制冷 <span class="ml-2 opacity-50 text-xs font-serif italic">HVAC</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-100 translate-x-0 group-hover:text-white">A</span>
+                </button>
+                <button class="plus-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-48 group" data-index="2">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30] text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-0 translate-x-8 pointer-events-none">家用电器 <span class="ml-2 opacity-50 text-xs font-serif italic">Appliances</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-100 translate-x-0 group-hover:text-white">E</span>
+                </button>
+                <button class="plus-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-48 group" data-index="3">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30] text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-0 translate-x-8 pointer-events-none">水生态系统 <span class="ml-2 opacity-50 text-xs font-serif italic">Water</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-100 translate-x-0 group-hover:text-white">W</span>
+                </button>
+                <button class="plus-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-48 group" data-index="4">
+                    <span class="nav-pill absolute right-[-2rem] bg-[#2a2a30] text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-0 translate-x-8 pointer-events-none">空气系统 <span class="ml-2 opacity-50 text-xs font-serif italic">Air</span></span>
+                    <span class="nav-letter absolute right-0 transition-all duration-500 opacity-100 translate-x-0 group-hover:text-white">S</span>
+                </button>
+            </div>
+
+            <!-- 滚轮提示器 -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center opacity-50 animate-bounce pointer-events-none text-gray-500">
+                <span class="text-[10px] tracking-widest mb-1 drop-shadow-md text-white">Scroll</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="drop-shadow-md"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+            </div>
+        </div>
+
+        <!-- --- Section: QUALITY (品质与保障) --- -->
+        <div id="section-quality" class="content-section absolute inset-0 flex transition-opacity duration-1000 opacity-0 z-0 pointer-events-none">
+            <div class="absolute top-8 right-16 text-3xl font-serif italic text-white z-30 drop-shadow-md">Quality & Guarantee / 品质与保障</div>
+            
+            <div class="w-[45%] relative">
+                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover" alt="Welding Worker" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                
+                <div class="absolute bottom-32 left-16 z-20">
+                    <div class="flex flex-col leading-tight">
+                        <span class="font-medium tracking-wider text-sm text-gray-400 mb-4">品质与保障</span>
+                        <span class="font-serif italic text-2xl font-serif italic hidden">Quality & Guarantee</span>
+                    </div>
+                    <h2 class="text-4xl font-light tracking-widest leading-snug mb-6">将您对博笛房屋的信任，<br/>融入到房屋的性能与技术中。</h2>
+                    <p class="text-sm text-gray-300 leading-loose">
+                        隐藏在设计和内部装饰之下的东西。<br/>
+                        耐震性没问题吗，省电的性能・设备如何。<br/>
+                        对未来的保障，以及出售时的价值还在吗。<br/>
+                        以与博笛定制住宅相同的基础性能，<br/>
+                        提供长久舒适的居住环境。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="w-[55%] bg-[#111] p-16 flex items-center overflow-y-auto">
+                <div class="grid grid-cols-2 gap-6 w-full mt-16">
+                    <!-- Cards -->
+                    <div class="relative group cursor-pointer overflow-hidden rounded border border-white/5 h-40">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop" alt="工厂生产" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <span class="text-lg tracking-widest font-medium">工厂生产</span>
+                            <span class="text-xs font-serif italic text-gray-400 group-hover:text-white transition flex items-center gap-1">Detail <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+                        </div>
+                    </div>
+                    <div class="relative group cursor-pointer overflow-hidden rounded border border-white/5 h-40">
+                        <img src="https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?q=80&w=600&auto=format&fit=crop" alt="原材料" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <span class="text-lg tracking-widest font-medium">原材料</span>
+                            <span class="text-xs font-serif italic text-gray-400 group-hover:text-white transition flex items-center gap-1">Detail <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+                        </div>
+                    </div>
+                    <div class="relative group cursor-pointer overflow-hidden rounded border border-white/5 h-40">
+                        <img src="https://images.unsplash.com/photo-1541888087522-832da1e7fb53?q=80&w=600&auto=format&fit=crop" alt="基础构造" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <span class="text-lg tracking-widest font-medium">基础构造</span>
+                            <span class="text-xs font-serif italic text-gray-400 group-hover:text-white transition flex items-center gap-1">Detail <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+                        </div>
+                    </div>
+                    <div class="relative group cursor-pointer overflow-hidden rounded border border-white/5 h-40">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=600&auto=format&fit=crop" alt="现场作业" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <span class="text-lg tracking-widest font-medium">现场作业</span>
+                            <span class="text-xs font-serif italic text-gray-400 group-hover:text-white transition flex items-center gap-1">Detail <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+                        </div>
+                    </div>
+                    <div class="relative group cursor-pointer overflow-hidden rounded border border-white/5 h-40">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=600&auto=format&fit=crop" alt="体系认证" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <span class="text-lg tracking-widest font-medium">体系认证</span>
+                            <span class="text-xs font-serif italic text-gray-400 group-hover:text-white transition flex items-center gap-1">Detail <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+                        </div>
+                    </div>
+                    <div class="relative group cursor-pointer overflow-hidden rounded border border-white/5 h-40">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop" alt="长期保证" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <span class="text-lg tracking-widest font-medium">长期保证</span>
+                            <span class="text-xs font-serif italic text-gray-400 group-hover:text-white transition flex items-center gap-1">Detail <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-span-2 border-b border-white/20 mt-4 pb-4 flex justify-between items-center cursor-pointer group hover:border-white/50 transition">
+                        <span class="text-sm tracking-widest text-gray-300 group-hover:text-white">平稳库存</span>
+                        <span class="text-xs font-serif italic text-gray-500 group-hover:text-white flex items-center gap-1">Detail <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ================= 核心交互逻辑 ================= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const sections = document.querySelectorAll('.content-section');
+
+            // --- 内部页面 (Interior) 滑动切换状态 ---
+            const interiorSection = document.getElementById('section-interior');
+            const interiorNavBtns = document.querySelectorAll('.interior-nav-btn');
+            const interiorSubSections = document.querySelectorAll('.interior-sub-section');
+            let currentInteriorIndex = 0;
+            let isInteriorScrolling = false;
+
+            // --- 平面规划页面 (Plan) 滑动切换状态 ---
+            const planSection = document.getElementById('section-plan');
+            const planNavBtns = document.querySelectorAll('.plan-nav-btn');
+            const planSubSections = document.querySelectorAll('.plan-sub-section');
+            let currentPlanIndex = 0;
+            let isPlanScrolling = false;
+
+            // --- 增值服务页面 (Plus) 滑动切换状态 ---
+            const plusSection = document.getElementById('section-plus');
+            const plusNavBtns = document.querySelectorAll('.plus-nav-btn');
+            const plusSubSections = document.querySelectorAll('.plus-sub-section');
+            let currentPlusIndex = 0;
+            let isPlusScrolling = false;
+
+            // 1. 左侧主导航面板切换函数
+            function switchSection(targetId) {
+                // 更新导航按钮状态
+                navButtons.forEach(btn => {
+                    const id = btn.getAttribute('data-id');
+                    const cnText = btn.querySelector('.cn-text');
+                    const enText = btn.querySelector('.en-text');
+
+                    if (id === targetId) {
+                        btn.classList.add('opacity-100', 'pl-2', 'border-l-2', 'border-white');
+                        btn.classList.remove('opacity-40');
+                        cnText.classList.add('text-white');
+                        cnText.classList.remove('text-gray-300');
+                        enText.classList.add('text-gray-200');
+                        enText.classList.remove('text-gray-500');
+                    } else {
+                        btn.classList.remove('opacity-100', 'pl-2', 'border-l-2', 'border-white');
+                        btn.classList.add('opacity-40');
+                        cnText.classList.remove('text-white');
+                        cnText.classList.add('text-gray-300');
+                        enText.classList.remove('text-gray-200');
+                        enText.classList.add('text-gray-500');
+                    }
+                });
+
+                // 更新主要内容区域显示 (幻灯片效果)
+                sections.forEach(section => {
+                    if (section.id === `section-${targetId}`) {
+                        section.classList.add('opacity-100', 'z-10');
+                        section.classList.remove('opacity-0', 'z-0', 'pointer-events-none');
+                    } else {
+                        section.classList.remove('opacity-100', 'z-10');
+                        section.classList.add('opacity-0', 'z-0', 'pointer-events-none');
+                    }
+                });
+
+                // 如果切回内部页面，重置到第一页（风格）
+                if (targetId === 'interior' && currentInteriorIndex !== 0) {
+                    gotoInteriorSlide(0);
+                }
+
+                // 如果切回平面规划页面，重置到第一页（方案1）
+                if (targetId === 'plan' && currentPlanIndex !== 0) {
+                    gotoPlanSlide(0);
+                }
+                
+                // 如果切回增值服务页面，重置到第一页
+                if (targetId === 'plus' && currentPlusIndex !== 0) {
+                    gotoPlusSlide(0);
+                }
+            }
+
+            // 为所有左侧导航按钮绑定点击事件
+            navButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-id');
+                    switchSection(targetId);
+                });
+            });
+
+            // 2. 内部页面的滑动处理函数 (核心：右侧划出效果)
+            function gotoInteriorSlide(targetIndex) {
+                if (targetIndex === currentInteriorIndex && interiorSubSections[targetIndex].classList.contains('opacity-100')) return;
+
+                isInteriorScrolling = true;
+                currentInteriorIndex = targetIndex;
+
+                interiorSubSections.forEach((section, idx) => {
+                    if (idx === targetIndex) {
+                        // 激活层：移到中心
+                        section.className = 'interior-sub-section absolute inset-0 transition-all duration-1000 ease-out opacity-100 translate-x-0 z-10';
+                    } else if (idx < targetIndex) {
+                        // 上一个层：向左移出
+                        section.className = 'interior-sub-section absolute inset-0 transition-all duration-1000 ease-out opacity-0 -translate-x-1/4 z-0 pointer-events-none';
+                    } else {
+                        // 下一个层：向右移出 (当从这里滑入时，就是从右侧划出)
+                        section.className = 'interior-sub-section absolute inset-0 transition-all duration-1000 ease-out opacity-0 translate-x-1/4 z-0 pointer-events-none';
+                    }
+                });
+
+                // 更新右侧子导航的展开/收起视觉效果
+                interiorNavBtns.forEach((btn, idx) => {
+                    const pill = btn.querySelector('.nav-pill');
+                    const letter = btn.querySelector('.nav-letter');
+                    if (idx === targetIndex) {
+                        pill.classList.remove('opacity-0', 'translate-x-8', 'pointer-events-none');
+                        pill.classList.add('opacity-100', 'translate-x-0');
+                        letter.classList.remove('opacity-100', 'translate-x-0');
+                        letter.classList.add('opacity-0', 'translate-x-4');
+                    } else {
+                        pill.classList.add('opacity-0', 'translate-x-8', 'pointer-events-none');
+                        pill.classList.remove('opacity-100', 'translate-x-0');
+                        letter.classList.add('opacity-100', 'translate-x-0');
+                        letter.classList.remove('opacity-0', 'translate-x-4');
+                    }
+                });
+
+                // 防连划节流延时
+                setTimeout(() => {
+                    isInteriorScrolling = false;
+                }, 1200); 
+            }
+
+            // 右侧子导航点击事件
+            interiorNavBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const targetIndex = parseInt(btn.getAttribute('data-index'));
+                    gotoInteriorSlide(targetIndex);
+                });
+            });
+
+            // 监听“内部”页面的滚轮事件触发滑动
+            interiorSection.addEventListener('wheel', (e) => {
+                if (isInteriorScrolling) return;
+
+                // 判断滚动方向，添加一定的阈值防止触摸板误触
+                if (e.deltaY > 30) {
+                    // 向下滚动 -> 划向下一页
+                    if (currentInteriorIndex < interiorSubSections.length - 1) {
+                        gotoInteriorSlide(currentInteriorIndex + 1);
+                    }
+                } else if (e.deltaY < -30) {
+                    // 向上滚动 -> 划向上一页
+                    if (currentInteriorIndex > 0) {
+                        gotoInteriorSlide(currentInteriorIndex - 1);
+                    }
+                }
+            });
+
+            // 3. 平面规划页面 (Plan) 的滑动处理函数
+            function gotoPlanSlide(targetIndex) {
+                if (targetIndex === currentPlanIndex && planSubSections[targetIndex].classList.contains('opacity-100')) return;
+
+                isPlanScrolling = true;
+                currentPlanIndex = targetIndex;
+
+                planSubSections.forEach((section, idx) => {
+                    if (idx === targetIndex) {
+                        // 激活层：移到中心
+                        section.className = 'plan-sub-section absolute inset-0 flex transition-all duration-1000 ease-out opacity-100 translate-x-0 z-10';
+                    } else if (idx < targetIndex) {
+                        // 上一个层：向左移出
+                        section.className = 'plan-sub-section absolute inset-0 flex transition-all duration-1000 ease-out opacity-0 -translate-x-1/4 z-0 pointer-events-none';
+                    } else {
+                        // 下一个层：向右移出
+                        section.className = 'plan-sub-section absolute inset-0 flex transition-all duration-1000 ease-out opacity-0 translate-x-1/4 z-0 pointer-events-none';
+                    }
+                });
+
+                // 更新右侧子导航的展开/收起视觉效果
+                planNavBtns.forEach((btn, idx) => {
+                    const pill = btn.querySelector('.nav-pill');
+                    const letter = btn.querySelector('.nav-letter');
+                    if (idx === targetIndex) {
+                        pill.classList.remove('opacity-0', 'translate-x-8', 'pointer-events-none');
+                        pill.classList.add('opacity-100', 'translate-x-0');
+                        letter.classList.remove('opacity-100', 'translate-x-0');
+                        letter.classList.add('opacity-0', 'translate-x-4');
+                    } else {
+                        pill.classList.add('opacity-0', 'translate-x-8', 'pointer-events-none');
+                        pill.classList.remove('opacity-100', 'translate-x-0');
+                        letter.classList.add('opacity-100', 'translate-x-0');
+                        letter.classList.remove('opacity-0', 'translate-x-4');
+                    }
+                });
+
+                // 防连划节流延时
+                setTimeout(() => {
+                    isPlanScrolling = false;
+                }, 1200); 
+            }
+
+            // 平面规划右侧子导航点击事件
+            planNavBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const targetIndex = parseInt(btn.getAttribute('data-index'));
+                    gotoPlanSlide(targetIndex);
+                });
+            });
+
+            // 监听“平面规划”页面的滚轮事件触发滑动
+            planSection.addEventListener('wheel', (e) => {
+                if (isPlanScrolling) return;
+
+                if (e.deltaY > 30) {
+                    // 向下滚动
+                    if (currentPlanIndex < planSubSections.length - 1) {
+                        gotoPlanSlide(currentPlanIndex + 1);
+                    }
+                } else if (e.deltaY < -30) {
+                    // 向上滚动
+                    if (currentPlanIndex > 0) {
+                        gotoPlanSlide(currentPlanIndex - 1);
+                    }
+                }
+            });
+
+            // 4. 增值服务页面 (Plus) 的滑动处理函数
+            function gotoPlusSlide(targetIndex) {
+                if (targetIndex === currentPlusIndex && plusSubSections[targetIndex].classList.contains('opacity-100')) return;
+
+                isPlusScrolling = true;
+                currentPlusIndex = targetIndex;
+
+                plusSubSections.forEach((section, idx) => {
+                    if (idx === targetIndex) {
+                        // 激活层：移到中心
+                        section.className = 'plus-sub-section absolute inset-0 flex transition-all duration-1000 ease-out opacity-100 translate-x-0 z-10';
+                    } else if (idx < targetIndex) {
+                        // 上一个层：向左移出
+                        section.className = 'plus-sub-section absolute inset-0 flex transition-all duration-1000 ease-out opacity-0 -translate-x-1/4 z-0 pointer-events-none';
+                    } else {
+                        // 下一个层：向右移出
+                        section.className = 'plus-sub-section absolute inset-0 flex transition-all duration-1000 ease-out opacity-0 translate-x-1/4 z-0 pointer-events-none';
+                    }
+                });
+
+                // 更新右侧子导航的展开/收起视觉效果
+                plusNavBtns.forEach((btn, idx) => {
+                    const pill = btn.querySelector('.nav-pill');
+                    const letter = btn.querySelector('.nav-letter');
+                    if (idx === targetIndex) {
+                        pill.classList.remove('opacity-0', 'translate-x-8', 'pointer-events-none');
+                        pill.classList.add('opacity-100', 'translate-x-0');
+                        letter.classList.remove('opacity-100', 'translate-x-0');
+                        letter.classList.add('opacity-0', 'translate-x-4');
+                    } else {
+                        pill.classList.add('opacity-0', 'translate-x-8', 'pointer-events-none');
+                        pill.classList.remove('opacity-100', 'translate-x-0');
+                        letter.classList.add('opacity-100', 'translate-x-0');
+                        letter.classList.remove('opacity-0', 'translate-x-4');
+                    }
+                });
+
+                // 防连划节流延时
+                setTimeout(() => {
+                    isPlusScrolling = false;
+                }, 1200); 
+            }
+
+            // 增值服务右侧子导航点击事件
+            plusNavBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const targetIndex = parseInt(btn.getAttribute('data-index'));
+                    gotoPlusSlide(targetIndex);
+                });
+            });
+
+            // 监听“增值服务”页面的滚轮事件触发滑动
+            plusSection.addEventListener('wheel', (e) => {
+                if (isPlusScrolling) return;
+
+                if (e.deltaY > 30) {
+                    // 向下滚动
+                    if (currentPlusIndex < plusSubSections.length - 1) {
+                        gotoPlusSlide(currentPlusIndex + 1);
+                    }
+                } else if (e.deltaY < -30) {
+                    // 向上滚动
+                    if (currentPlusIndex > 0) {
+                        gotoPlusSlide(currentPlusIndex - 1);
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
