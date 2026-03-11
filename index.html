@@ -52,7 +52,7 @@
                 <button data-id="howto" class="nav-btn text-left transition-all duration-300 group flex flex-col opacity-40 hover:opacity-100 hover:pl-1">
                     <div class="flex flex-col leading-tight">
                         <span class="cn-text font-medium tracking-wider text-sm tracking-widest text-gray-300">如何实现</span>
-                        <span class="en-text font-serif italic text-xs mt-1 text-gray-500">How to</span>
+                        <span class="en-text font-serif italic text-xs mt-1 text-gray-500">How to achieve</span>
                     </div>
                 </button>
             </li>
@@ -133,6 +133,7 @@
         <!-- --- Section: TOP (首页) --- -->
         <div id="section-top" class="content-section absolute inset-0 transition-opacity duration-1000 opacity-100 z-10">
             <div class="absolute inset-0 bg-black/40 z-10"></div>
+            <!-- 替换说明：将下面的 src 替换为你的公网图片链接 1-1-->
             <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000&auto=format&fit=crop" alt="Blueprint" class="w-full h-full object-cover" />
             
             <div class="absolute bottom-32 left-16 z-20 max-w-xl">
@@ -140,13 +141,20 @@
                 <h3 class="text-4xl leading-tight font-light tracking-widest mb-8">
                     以工业化、绿色化、数字化，<br/>引领乡村住房新标准。
                 </h3>
-                <p class="text-sm leading-loose text-gray-300 tracking-wider">
-                    博笛智家是凯昆科技集团旗下的住宅品牌，中国领先的单元集成住宅制造企业。<br/>
-                    通过自研的智能工业化产线，打造建筑工业化住宅产品 BODHIMIC。<br/>
-                    我们拥有来自各学科的硕博士研发团队，深耕单元建筑的核心技术，<br/>
-                    为您创造可持续价值的“好房子”。<br/>
-                    即使时间流逝，住宅的价值持续存在，提供让您安心舒适生活超过60年的绿色低碳住宅。
-                </p>
+                <div class="flex flex-col gap-4">
+                    <p class="text-sm leading-loose text-gray-300 tracking-wider">
+                        博笛智家是凯昆科技集团旗下的住宅品牌，中国领先的单元集成住宅制造企业。<br/>
+                        通过自研的智能工业化产线，打造建筑工业化住宅产品 BODHIMIC。<br/>
+                        我们拥有来自各学科的硕博士研发团队，深耕单元建筑的核心技术，<br/>
+                        为您创造可持续价值的“好房子”。
+                    </p>
+                    <!-- 你刚才选中的文本区域，如果想在这里加一张说明图，可以使用下方的注释结构 -->
+                    <p class="text-sm leading-loose text-gray-300 tracking-wider">
+                        即使时间流逝，住宅的价值持续存在，提供让您安心舒适生活超过60年的绿色低碳住宅。
+                    </p>
+                    <!-- 示例：放置一个随文本显示的本地/公网图片 -->
+                    <!-- <img src="你的图片链接" class="w-32 h-auto rounded border border-white/20 mt-2" alt="核心理念图"> -->
+                </div>
             </div>
 
             <div class="absolute right-8 bottom-32 z-20">
@@ -161,7 +169,7 @@
             </div>
         </div>
 
-        <!-- --- Section: BENEFIT (核心优势) --- -->
+        <!-- --- Section: BENEFIT (核心优势) 2-1--- -->
         <div id="section-benefit" class="content-section absolute inset-0 transition-opacity duration-1000 bg-[#1a1a1c] opacity-0 z-0 pointer-events-none">
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop" alt="Shadow texture" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay" />
             
@@ -202,21 +210,21 @@
             </div>
         </div>
 
-        <!-- --- Section: HOW TO (如何实现) --- -->
+        <!-- --- Section: How to achieve (如何实现) --- 3-1、6-->
         <div id="section-howto" class="content-section absolute inset-0 transition-opacity duration-1000 bg-black opacity-0 z-0 pointer-events-none">
             <div class="grid grid-cols-3 grid-rows-2 h-full w-full opacity-40">
                 <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="family" />
                 <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="dog" />
                 <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="couple" />
                 <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="cooking" />
-                <img src="https://images.unsplash.com/photo-1595085610896-1ed098b671a5?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="interior" />
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover" alt="interior" />
                 <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="child" />
             </div>
             
             <div class="absolute top-1/2 -translate-y-1/2 left-16 z-20">
                 <div class="flex flex-col leading-tight">
                     <span class="font-medium tracking-wider text-2xl mb-4">你理想的豪宅只需</span>
-                    <span class="font-serif italic text-xl mb-6 block text-gray-400">How to</span>
+                    <span class="font-serif italic text-xl mb-6 block text-gray-400">How to achieve</span>
                 </div>
                 <h3 class="text-4xl font-light tracking-widest mb-6">四步就诞生了</h3>
                 <p class="text-sm leading-loose text-gray-300 max-w-xs">
@@ -225,44 +233,44 @@
             </div>
 
             <div class="absolute top-1/2 right-32 -translate-y-1/2 flex flex-col gap-4 z-20 w-[400px]">
-                <div class="bg-[#2a2a30]/80 backdrop-blur-md p-6 rounded cursor-pointer hover:bg-[#3a3a40] transition border border-white/10 flex items-center justify-between group">
+                <div data-target="plan" class="howto-step-btn bg-[#2a2a30]/80 backdrop-blur-md p-6 rounded cursor-pointer hover:bg-[#3a3a40] transition border border-white/10 flex items-center justify-between group">
                     <div class="flex items-center gap-6">
                         <span class="text-sm text-gray-400 italic font-serif">步骤</span>
                         <span class="text-3xl font-serif italic">01</span>
-                        <span class="text-lg tracking-wider">从不同角度选择计划</span>
+                        <span class="text-lg tracking-wider">平面即生活</span>
                     </div>
                     <div class="flex items-center gap-2 text-sm text-gray-400 group-hover:text-white transition">
-                        景观 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        详情 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </div>
                 </div>
-                <div class="bg-[#2a2a30]/80 backdrop-blur-md p-6 rounded cursor-pointer hover:bg-[#3a3a40] transition border border-white/10 flex items-center justify-between group">
+                <div data-target="exterior" class="howto-step-btn bg-[#2a2a30]/80 backdrop-blur-md p-6 rounded cursor-pointer hover:bg-[#3a3a40] transition border border-white/10 flex items-center justify-between group">
                     <div class="flex items-center gap-6">
                         <span class="text-sm text-gray-400 italic font-serif">步骤</span>
                         <span class="text-3xl font-serif italic">02</span>
-                        <span class="text-lg tracking-wider">选择外观效果</span>
+                        <span class="text-lg tracking-wider">给房子挑件衣服</span>
                     </div>
                     <div class="flex items-center gap-2 text-sm text-gray-400 group-hover:text-white transition">
-                        景观 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        详情 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </div>
                 </div>
-                <div class="bg-[#2a2a30]/80 backdrop-blur-md p-6 rounded cursor-pointer hover:bg-[#3a3a40] transition border border-white/10 flex items-center justify-between group">
+                <div data-target="interior" class="howto-step-btn bg-[#2a2a30]/80 backdrop-blur-md p-6 rounded cursor-pointer hover:bg-[#3a3a40] transition border border-white/10 flex items-center justify-between group">
                     <div class="flex items-center gap-6">
                         <span class="text-sm text-gray-400 italic font-serif">步骤</span>
                         <span class="text-3xl font-serif italic">03</span>
-                        <span class="text-lg tracking-wider">选择室内厨房</span>
+                        <span class="text-lg tracking-wider">舒服的空间</span>
                     </div>
                     <div class="flex items-center gap-2 text-sm text-gray-400 group-hover:text-white transition">
-                        景观 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        详情 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </div>
                 </div>
-                <div class="bg-[#2a2a30]/80 backdrop-blur-md p-6 rounded cursor-pointer hover:bg-[#3a3a40] transition border border-white/10 flex items-center justify-between group">
+                <div data-target="plus" class="howto-step-btn bg-[#2a2a30]/80 backdrop-blur-md p-6 rounded cursor-pointer hover:bg-[#3a3a40] transition border border-white/10 flex items-center justify-between group">
                     <div class="flex items-center gap-6">
                         <span class="text-sm text-gray-400 italic font-serif">步骤</span>
                         <span class="text-3xl font-serif italic">04</span>
-                        <span class="text-lg tracking-wider">选项 附加物品</span>
+                        <span class="text-lg tracking-wider">再舒适一些</span>
                     </div>
                     <div class="flex items-center gap-2 text-sm text-gray-400 group-hover:text-white transition">
-                        景观 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        详情 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </div>
                 </div>
             </div>
@@ -287,20 +295,52 @@
                         </p>
                     </div>
                 </div>
-                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-16 flex flex-col justify-center">
+                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-12 lg:p-16 flex flex-col justify-center h-full overflow-y-auto">
                     <div class="flex flex-col leading-tight mb-8">
-                        <span class="font-medium tracking-wider text-2xl font-light text-black">示例方案 1</span>
-                        <span class="font-serif italic text-xl italic font-serif text-gray-500">Model Plan 1</span>
+                        <span class="font-medium tracking-wider text-2xl font-light text-black">TYPE 1</span>
+                        <span class="font-serif italic text-lg text-gray-500 mt-2">三代人可以共同居住的两层住宅</span>
                     </div>
-                    <div class="flex gap-12 items-center">
-                        <div class="w-2/3 border border-gray-300 p-4 bg-white/50 relative">
-                            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=800&auto=format&fit=crop" alt="Floor plan placeholder" class="w-full opacity-60 grayscale" />
-                            <div class="absolute top-1/4 -right-12 w-48 text-xs bg-white p-2 shadow-sm border-l-2 border-black">多目的空间，贴合生活方式。可用作工作区。</div>
-                            <div class="absolute bottom-1/4 -right-12 w-48 text-xs bg-white p-2 shadow-sm border-l-2 border-black">大型主卧，季节衣物轻松收纳。</div>
+                    
+                    <!-- 1F / 2F 图纸占位 -->
+                    <div class="flex gap-8 items-start mb-8 w-[90%]">
+                        <div class="w-1/2 flex flex-col items-center">
+                            <span class="font-serif italic text-gray-500 mb-2 text-sm font-bold tracking-widest">1F</span>
+                            <div class="border border-gray-300 p-2 bg-white/70 shadow-sm w-full relative group">
+                                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=600&auto=format&fit=crop" alt="1F Plan placeholder" class="w-full opacity-60 grayscale group-hover:opacity-100 transition-opacity" />
+                                <div class="absolute bottom-4 -right-4 w-36 text-[10px] bg-white p-2 shadow-md border-l-2 border-black z-10">开放式大横厅，家庭互动中心</div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex flex-col items-center">
+                            <span class="font-serif italic text-gray-500 mb-2 text-sm font-bold tracking-widest">2F</span>
+                            <div class="border border-gray-300 p-2 bg-white/70 shadow-sm w-full relative group">
+                                <img src="https://images.unsplash.com/photo-1628624747186-a941c476b7ef?q=80&w=600&auto=format&fit=crop" alt="2F Plan placeholder" class="w-full opacity-60 grayscale group-hover:opacity-100 transition-opacity" />
+                                <div class="absolute top-4 -right-4 w-36 text-[10px] bg-white p-2 shadow-md border-l-2 border-black z-10">独立主卧套房，私密与舒适并存</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-500 tracking-widest mt-8 border-t border-gray-300 pt-4 w-2/3">
-                        Data | 延床面积: 99.76㎡ (30.18坪)
+
+                    <!-- 项目信息区块 -->
+                    <div class="w-[90%] bg-white/60 border border-gray-200 p-6 shadow-sm">
+                        <!-- POINT 标签 -->
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-[#333] text-white text-[10px] px-3 py-1 tracking-widest">POINT.1</span>
+                            <span class="bg-gray-200 text-gray-600 text-[10px] px-3 py-1 tracking-widest">POINT.2</span>
+                            <span class="bg-gray-200 text-gray-600 text-[10px] px-3 py-1 tracking-widest">POINT.3</span>
+                        </div>
+                        <h4 class="text-sm font-bold tracking-widest border-b border-gray-300 pb-2 mb-4 flex justify-between items-end">
+                            <span>基本信息</span>
+                            <span class="font-serif italic text-[10px] text-gray-400 font-normal">Basic Information</span>
+                        </h4>
+                        <div class="grid grid-cols-2 gap-y-3 gap-x-8 text-xs tracking-wider text-gray-600">
+                            <div class="flex justify-between"><span>占地面积</span><span class="font-medium text-black">96.5㎡（含散水）</span></div>
+                            <div class="flex justify-between"><span>总建筑面积</span><span class="font-medium text-black">180㎡</span></div>
+                            <div class="flex justify-between"><span>东西尺寸</span><span class="font-medium text-black">10.315m</span></div>
+                            <div class="flex justify-between"><span>南北尺寸</span><span class="font-medium text-black">8.545m</span></div>
+                            <div class="col-span-2 flex justify-between border-t border-gray-200 pt-3 mt-1">
+                                <span>空间布局</span>
+                                <span class="font-medium text-black">3卧，2厅，3卫，1厨，1餐厅，1阳台</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -320,19 +360,50 @@
                         </p>
                     </div>
                 </div>
-                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-16 flex flex-col justify-center">
+                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-12 lg:p-16 flex flex-col justify-center h-full overflow-y-auto">
                     <div class="flex flex-col leading-tight mb-8">
-                        <span class="font-medium tracking-wider text-2xl font-light text-black">示例方案 2</span>
-                        <span class="font-serif italic text-xl italic font-serif text-gray-500">Model Plan 2</span>
+                        <span class="font-medium tracking-wider text-2xl font-light text-black">TYPE 2</span>
+                        <span class="font-serif italic text-lg text-gray-500 mt-2">注重隐私与采光的动静分离结构</span>
                     </div>
-                    <div class="flex gap-12 items-center">
-                        <div class="w-2/3 border border-gray-300 p-4 bg-white/50 relative">
-                            <img src="https://images.unsplash.com/photo-1628624747186-a941c476b7ef?q=80&w=800&auto=format&fit=crop" alt="Floor plan placeholder" class="w-full opacity-60 grayscale" />
-                            <div class="absolute top-1/2 -right-12 w-48 text-xs bg-white p-2 shadow-sm border-l-2 border-black">开放式中岛厨房，便于家庭互动交流。</div>
+                    
+                    <!-- 1F / 2F 图纸占位 -->
+                    <div class="flex gap-8 items-start mb-8 w-[90%]">
+                        <div class="w-1/2 flex flex-col items-center">
+                            <span class="font-serif italic text-gray-500 mb-2 text-sm font-bold tracking-widest">1F</span>
+                            <div class="border border-gray-300 p-2 bg-white/70 shadow-sm w-full relative group">
+                                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=600&auto=format&fit=crop" alt="1F Plan placeholder" class="w-full opacity-60 grayscale group-hover:opacity-100 transition-opacity" />
+                                <div class="absolute bottom-4 -right-4 w-36 text-[10px] bg-white p-2 shadow-md border-l-2 border-black z-10">开放式中岛厨房，便于家庭互动交流。</div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex flex-col items-center">
+                            <span class="font-serif italic text-gray-500 mb-2 text-sm font-bold tracking-widest">2F</span>
+                            <div class="border border-gray-300 p-2 bg-white/70 shadow-sm w-full relative group">
+                                <img src="https://images.unsplash.com/photo-1628624747186-a941c476b7ef?q=80&w=600&auto=format&fit=crop" alt="2F Plan placeholder" class="w-full opacity-60 grayscale group-hover:opacity-100 transition-opacity" />
+                                <div class="absolute top-4 -right-4 w-36 text-[10px] bg-white p-2 shadow-md border-l-2 border-black z-10">阳光书房配置，打造静谧办公区</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-500 tracking-widest mt-8 border-t border-gray-300 pt-4 w-2/3">
-                        Data | 延床面积: 112.50㎡ (34.03坪)
+
+                    <!-- 项目信息区块 -->
+                    <div class="w-[90%] bg-white/60 border border-gray-200 p-6 shadow-sm">
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-[#333] text-white text-[10px] px-3 py-1 tracking-widest">POINT.1</span>
+                            <span class="bg-gray-200 text-gray-600 text-[10px] px-3 py-1 tracking-widest">POINT.2</span>
+                        </div>
+                        <h4 class="text-sm font-bold tracking-widest border-b border-gray-300 pb-2 mb-4 flex justify-between items-end">
+                            <span>基本信息</span>
+                            <span class="font-serif italic text-[10px] text-gray-400 font-normal">Basic Information</span>
+                        </h4>
+                        <div class="grid grid-cols-2 gap-y-3 gap-x-8 text-xs tracking-wider text-gray-600">
+                            <div class="flex justify-between"><span>占地面积</span><span class="font-medium text-black">78.0㎡</span></div>
+                            <div class="flex justify-between"><span>总建筑面积</span><span class="font-medium text-black">112.50㎡</span></div>
+                            <div class="flex justify-between"><span>东西尺寸</span><span class="font-medium text-black">9.500m</span></div>
+                            <div class="flex justify-between"><span>南北尺寸</span><span class="font-medium text-black">7.200m</span></div>
+                            <div class="col-span-2 flex justify-between border-t border-gray-200 pt-3 mt-1">
+                                <span>空间布局</span>
+                                <span class="font-medium text-black">3卧，2厅，2卫，1厨</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -352,19 +423,50 @@
                         </p>
                     </div>
                 </div>
-                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-16 flex flex-col justify-center">
+                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-12 lg:p-16 flex flex-col justify-center h-full overflow-y-auto">
                     <div class="flex flex-col leading-tight mb-8">
-                        <span class="font-medium tracking-wider text-2xl font-light text-black">示例方案 3</span>
-                        <span class="font-serif italic text-xl italic font-serif text-gray-500">Model Plan 3</span>
+                        <span class="font-medium tracking-wider text-2xl font-light text-black">TYPE 3</span>
+                        <span class="font-serif italic text-lg text-gray-500 mt-2">极致采光的单坡挑高结构设计</span>
                     </div>
-                    <div class="flex gap-12 items-center">
-                        <div class="w-2/3 border border-gray-300 p-4 bg-white/50 relative">
-                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop" alt="Floor plan placeholder" class="w-full opacity-60 grayscale" />
-                            <div class="absolute bottom-1/3 -right-12 w-48 text-xs bg-white p-2 shadow-sm border-l-2 border-black">通顶大落地窗，将室外自然风景引入室内。</div>
+                    
+                    <!-- 1F / 2F 图纸占位 -->
+                    <div class="flex gap-8 items-start mb-8 w-[90%]">
+                        <div class="w-1/2 flex flex-col items-center">
+                            <span class="font-serif italic text-gray-500 mb-2 text-sm font-bold tracking-widest">1F</span>
+                            <div class="border border-gray-300 p-2 bg-white/70 shadow-sm w-full relative group">
+                                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=600&auto=format&fit=crop" alt="1F Plan placeholder" class="w-full opacity-60 grayscale group-hover:opacity-100 transition-opacity" />
+                                <div class="absolute bottom-4 -right-4 w-36 text-[10px] bg-white p-2 shadow-md border-l-2 border-black z-10">通顶大落地窗，将室外自然风景引入室内。</div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex flex-col items-center">
+                            <span class="font-serif italic text-gray-500 mb-2 text-sm font-bold tracking-widest">2F</span>
+                            <div class="border border-gray-300 p-2 bg-white/70 shadow-sm w-full relative group">
+                                <img src="https://images.unsplash.com/photo-1628624747186-a941c476b7ef?q=80&w=600&auto=format&fit=crop" alt="2F Plan placeholder" class="w-full opacity-60 grayscale group-hover:opacity-100 transition-opacity" />
+                                <div class="absolute top-4 -right-4 w-36 text-[10px] bg-white p-2 shadow-md border-l-2 border-black z-10">室内挑高回廊，增加空间延伸感</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-500 tracking-widest mt-8 border-t border-gray-300 pt-4 w-2/3">
-                        Data | 延床面积: 105.80㎡ (32.00坪)
+
+                    <!-- 项目信息区块 -->
+                    <div class="w-[90%] bg-white/60 border border-gray-200 p-6 shadow-sm">
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-[#333] text-white text-[10px] px-3 py-1 tracking-widest">POINT.1</span>
+                            <span class="bg-gray-200 text-gray-600 text-[10px] px-3 py-1 tracking-widest">POINT.2</span>
+                        </div>
+                        <h4 class="text-sm font-bold tracking-widest border-b border-gray-300 pb-2 mb-4 flex justify-between items-end">
+                            <span>基本信息</span>
+                            <span class="font-serif italic text-[10px] text-gray-400 font-normal">Basic Information</span>
+                        </h4>
+                        <div class="grid grid-cols-2 gap-y-3 gap-x-8 text-xs tracking-wider text-gray-600">
+                            <div class="flex justify-between"><span>占地面积</span><span class="font-medium text-black">68.5㎡</span></div>
+                            <div class="flex justify-between"><span>总建筑面积</span><span class="font-medium text-black">105.80㎡</span></div>
+                            <div class="flex justify-between"><span>东西尺寸</span><span class="font-medium text-black">8.800m</span></div>
+                            <div class="flex justify-between"><span>南北尺寸</span><span class="font-medium text-black">7.500m</span></div>
+                            <div class="col-span-2 flex justify-between border-t border-gray-200 pt-3 mt-1">
+                                <span>空间布局</span>
+                                <span class="font-medium text-black">2卧，2厅，2卫，1厨，1阁楼</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -384,19 +486,51 @@
                         </p>
                     </div>
                 </div>
-                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-16 flex flex-col justify-center">
+                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-12 lg:p-16 flex flex-col justify-center h-full overflow-y-auto">
                     <div class="flex flex-col leading-tight mb-8">
-                        <span class="font-medium tracking-wider text-2xl font-light text-black">示例方案 4</span>
-                        <span class="font-serif italic text-xl italic font-serif text-gray-500">Model Plan 4</span>
+                        <span class="font-medium tracking-wider text-2xl font-light text-black">TYPE 4</span>
+                        <span class="font-serif italic text-lg text-gray-500 mt-2">拥有超大屋顶花园的现代平顶住宅</span>
                     </div>
-                    <div class="flex gap-12 items-center">
-                        <div class="w-2/3 border border-gray-300 p-4 bg-white/50 relative">
-                            <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2291?q=80&w=800&auto=format&fit=crop" alt="Floor plan placeholder" class="w-full opacity-60 grayscale" />
-                            <div class="absolute top-1/4 -right-12 w-48 text-xs bg-white p-2 shadow-sm border-l-2 border-black">室外楼梯直达屋顶花园，动线流畅。</div>
+                    
+                    <!-- 1F / 2F 图纸占位 -->
+                    <div class="flex gap-8 items-start mb-8 w-[90%]">
+                        <div class="w-1/2 flex flex-col items-center">
+                            <span class="font-serif italic text-gray-500 mb-2 text-sm font-bold tracking-widest">1F</span>
+                            <div class="border border-gray-300 p-2 bg-white/70 shadow-sm w-full relative group">
+                                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=600&auto=format&fit=crop" alt="1F Plan placeholder" class="w-full opacity-60 grayscale group-hover:opacity-100 transition-opacity" />
+                                <div class="absolute bottom-4 -right-4 w-36 text-[10px] bg-white p-2 shadow-md border-l-2 border-black z-10">L型客餐厅布局，空间利用率极高</div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex flex-col items-center">
+                            <span class="font-serif italic text-gray-500 mb-2 text-sm font-bold tracking-widest">2F</span>
+                            <div class="border border-gray-300 p-2 bg-white/70 shadow-sm w-full relative group">
+                                <img src="https://images.unsplash.com/photo-1628624747186-a941c476b7ef?q=80&w=600&auto=format&fit=crop" alt="2F Plan placeholder" class="w-full opacity-60 grayscale group-hover:opacity-100 transition-opacity" />
+                                <div class="absolute top-4 -right-4 w-36 text-[10px] bg-white p-2 shadow-md border-l-2 border-black z-10">直达屋顶花园的楼梯设计，动线流畅。</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-500 tracking-widest mt-8 border-t border-gray-300 pt-4 w-2/3">
-                        Data | 延床面积: 120.45㎡ (36.43坪)
+
+                    <!-- 项目信息区块 -->
+                    <div class="w-[90%] bg-white/60 border border-gray-200 p-6 shadow-sm">
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-[#333] text-white text-[10px] px-3 py-1 tracking-widest">POINT.1</span>
+                            <span class="bg-gray-200 text-gray-600 text-[10px] px-3 py-1 tracking-widest">POINT.2</span>
+                            <span class="bg-gray-200 text-gray-600 text-[10px] px-3 py-1 tracking-widest">POINT.3</span>
+                        </div>
+                        <h4 class="text-sm font-bold tracking-widest border-b border-gray-300 pb-2 mb-4 flex justify-between items-end">
+                            <span>基本信息</span>
+                            <span class="font-serif italic text-[10px] text-gray-400 font-normal">Basic Information</span>
+                        </h4>
+                        <div class="grid grid-cols-2 gap-y-3 gap-x-8 text-xs tracking-wider text-gray-600">
+                            <div class="flex justify-between"><span>占地面积</span><span class="font-medium text-black">82.0㎡</span></div>
+                            <div class="flex justify-between"><span>总建筑面积</span><span class="font-medium text-black">120.45㎡</span></div>
+                            <div class="flex justify-between"><span>东西尺寸</span><span class="font-medium text-black">11.200m</span></div>
+                            <div class="flex justify-between"><span>南北尺寸</span><span class="font-medium text-black">8.500m</span></div>
+                            <div class="col-span-2 flex justify-between border-t border-gray-200 pt-3 mt-1">
+                                <span>空间布局</span>
+                                <span class="font-medium text-black">4卧，2厅，2卫，1厨，1屋顶露台</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -416,19 +550,50 @@
                         </p>
                     </div>
                 </div>
-                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-16 flex flex-col justify-center">
+                <div class="w-[60%] bg-[#f4f3ef] text-[#333] relative p-12 lg:p-16 flex flex-col justify-center h-full overflow-y-auto">
                     <div class="flex flex-col leading-tight mb-8">
-                        <span class="font-medium tracking-wider text-2xl font-light text-black">示例方案 5</span>
-                        <span class="font-serif italic text-xl italic font-serif text-gray-500">Model Plan 5</span>
+                        <span class="font-medium tracking-wider text-2xl font-light text-black">TYPE 5</span>
+                        <span class="font-serif italic text-lg text-gray-500 mt-2">适宜全龄段居住的单层庭院住宅</span>
                     </div>
-                    <div class="flex gap-12 items-center">
-                        <div class="w-2/3 border border-gray-300 p-4 bg-white/50 relative">
-                            <img src="https://images.unsplash.com/photo-1595085610896-1ed098b671a5?q=80&w=800&auto=format&fit=crop" alt="Floor plan placeholder" class="w-full opacity-60 grayscale" />
-                            <div class="absolute top-1/2 -right-12 w-48 text-xs bg-white p-2 shadow-sm border-l-2 border-black">环形动线设计，家务操作更加高效省力。</div>
+                    
+                    <!-- 1F / 2F 图纸占位 (这里用1F和屋顶平面代替) -->
+                    <div class="flex gap-8 items-start mb-8 w-[90%]">
+                        <div class="w-1/2 flex flex-col items-center">
+                            <span class="font-serif italic text-gray-500 mb-2 text-sm font-bold tracking-widest">1F</span>
+                            <div class="border border-gray-300 p-2 bg-white/70 shadow-sm w-full relative group">
+                                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=600&auto=format&fit=crop" alt="1F Plan placeholder" class="w-full opacity-60 grayscale group-hover:opacity-100 transition-opacity" />
+                                <div class="absolute bottom-4 -right-4 w-36 text-[10px] bg-white p-2 shadow-md border-l-2 border-black z-10">环形动线设计，家务操作更加高效省力。</div>
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex flex-col items-center">
+                            <span class="font-serif italic text-gray-500 mb-2 text-sm font-bold tracking-widest">Roof</span>
+                            <div class="border border-gray-300 p-2 bg-white/70 shadow-sm w-full relative group">
+                                <img src="https://images.unsplash.com/photo-1628624747186-a941c476b7ef?q=80&w=600&auto=format&fit=crop" alt="Roof Plan placeholder" class="w-full opacity-60 grayscale group-hover:opacity-100 transition-opacity" />
+                                <div class="absolute top-4 -right-4 w-36 text-[10px] bg-white p-2 shadow-md border-l-2 border-black z-10">超大平层延伸，与庭院自然景观无缝衔接</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="text-xs text-gray-500 tracking-widest mt-8 border-t border-gray-300 pt-4 w-2/3">
-                        Data | 延床面积: 88.60㎡ (26.80坪)
+
+                    <!-- 项目信息区块 -->
+                    <div class="w-[90%] bg-white/60 border border-gray-200 p-6 shadow-sm">
+                        <div class="flex gap-2 mb-4">
+                            <span class="bg-[#333] text-white text-[10px] px-3 py-1 tracking-widest">POINT.1</span>
+                            <span class="bg-gray-200 text-gray-600 text-[10px] px-3 py-1 tracking-widest">POINT.2</span>
+                        </div>
+                        <h4 class="text-sm font-bold tracking-widest border-b border-gray-300 pb-2 mb-4 flex justify-between items-end">
+                            <span>基本信息</span>
+                            <span class="font-serif italic text-[10px] text-gray-400 font-normal">Basic Information</span>
+                        </h4>
+                        <div class="grid grid-cols-2 gap-y-3 gap-x-8 text-xs tracking-wider text-gray-600">
+                            <div class="flex justify-between"><span>占地面积</span><span class="font-medium text-black">95.0㎡</span></div>
+                            <div class="flex justify-between"><span>总建筑面积</span><span class="font-medium text-black">88.60㎡</span></div>
+                            <div class="flex justify-between"><span>东西尺寸</span><span class="font-medium text-black">10.500m</span></div>
+                            <div class="flex justify-between"><span>南北尺寸</span><span class="font-medium text-black">8.000m</span></div>
+                            <div class="col-span-2 flex justify-between border-t border-gray-200 pt-3 mt-1">
+                                <span>空间布局</span>
+                                <span class="font-medium text-black">2卧，2厅，1卫，1厨，1庭院</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -482,7 +647,7 @@
                     </div>
                     <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">用你喜欢的外观印象</h2>
                     <p class="text-sm text-gray-400 leading-loose">
-                        基于单色调，整体建筑的<br/>色调。如外墙、排水沟、檐口和入口门廊，协调一致，营造出美丽的印象。<br/>
+                        基于单色系，整体建筑的<br/>色系。如外墙、排水沟、檐口和入口门廊，协调一致，营造出美丽的印象。<br/>
                         耐候性和防污也是保持美丽的关键因素。<br/>
                         它的设计非常适合路上的乘客。
                     </p>
@@ -602,10 +767,10 @@
                     <!-- 居中悬浮圆环文字块 (四种风格的统领说明) -->
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] bg-[#1a1a1c]/90 backdrop-blur-xl flex flex-col items-center justify-center text-center p-8 z-20 rounded-full shadow-[0_0_60px_rgba(0,0,0,0.8)] border border-white/10 pointer-events-none">
                         <span class="font-serif italic text-xl text-gray-400 mb-4 tracking-widest">Style</span>
-                        <h2 class="text-2xl font-light tracking-widest leading-snug mb-4">表现"自我"<br/>的4种风格</h2>
+                        <h2 class="text-2xl font-light tracking-widest leading-snug mb-4">体现”个性化“<br/>的4种风格</h2>
                         <p class="text-xs text-gray-400 leading-relaxed tracking-wider">
                             LDK的室内风格，<br/>通过选择喜欢的颜色或材质。<br/>
-                            匹配室内色调，<br/>享受家具、照明的搭配乐趣。
+                            搭配室内色系，<br/>享受家具、照明的生活气息。
                         </p>
                     </div>
                 </div>
@@ -624,15 +789,15 @@
                         <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" alt="kitchenhouse" />
                         <div class="absolute bottom-8 right-12 text-right max-w-sm">
                             <h3 class="text-xl font-bold tracking-widest text-white drop-shadow-lg mb-3">Style Select Kitchen | kitchenhouse</h3>
-                            <p class="text-xs text-gray-300 tracking-wider leading-relaxed">与kitchenhouse的合作，仅限特定的方案。<br/>提供独家的风格定制厨房双色调选择。</p>
+                            <p class="text-xs text-gray-300 tracking-wider leading-relaxed">与kitchenhouse的合作，仅限特定的方案。<br/>提供独家的风格定制厨房双色系选择。</p>
                         </div>
                     </div>
                     <div class="bg-[#1a1a1c] relative p-16 flex flex-col justify-center border-r border-white/10">
                         <span class="font-serif italic text-2xl text-gray-400 mb-8">Kitchen</span>
-                        <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">表现"自我"的<br/>3种厨房</h2>
+                        <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">体现”个性化“的<br/>3种厨房</h2>
                         <p class="text-sm text-gray-400 leading-loose max-w-sm">
                             LDK的室内风格，<br/>希望通过家人喜欢的颜色或材质来选择。<br/>
-                            匹配包裹整个空间的室内色调，<br/>还可以享受家具、照明、艺术品的搭配乐趣。
+                            匹配包裹整个空间的室内色系，<br/>还可以享受家具、照明、艺术品的生活气息。
                         </p>
                     </div>
                     <div class="relative group overflow-hidden bg-[#f4f3ef]">
@@ -761,7 +926,7 @@
                     </p>
                 </div>
                 <div class="w-[55%] relative">
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop" alt="HVAC Comfort" class="w-full h-full object-cover" />
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=1200&auto=format&fit=crop" alt="HVAC Comfort" class="w-full h-full object-cover" />
                     <div class="absolute inset-0 bg-black/10"></div>
                 </div>
             </div>
@@ -769,7 +934,7 @@
             <!-- 子页面 3：家用电器 (Smart Appliances) -->
             <div id="plus-sub-appliances" class="plus-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-0 translate-x-1/4 z-0 pointer-events-none">
                 <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=2000&auto=format&fit=crop" alt="Smart Appliances" class="absolute inset-0 w-full h-full object-cover opacity-40" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                 
                 <div class="absolute bottom-32 left-1/2 -translate-x-1/2 z-20 text-center w-full max-w-2xl">
                     <span class="text-xl font-serif italic text-gray-400 mb-4 block">Smart Home</span>
@@ -1022,6 +1187,15 @@
             navButtons.forEach(btn => {
                 btn.addEventListener('click', () => {
                     const targetId = btn.getAttribute('data-id');
+                    switchSection(targetId);
+                });
+            });
+
+            // --- 新增：如何实现页面 (Howto) 的步骤跳转逻辑 ---
+            const howtoStepBtns = document.querySelectorAll('.howto-step-btn');
+            howtoStepBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-target');
                     switchSection(targetId);
                 });
             });
