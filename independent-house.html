@@ -19,6 +19,94 @@
         ::-webkit-scrollbar {
             display: none;
         }
+
+        @media (max-width: 768px) {
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            body {
+                display: block !important;
+            }
+
+            body > nav {
+                display: none !important;
+            }
+
+            #main-content {
+                width: 100vw !important;
+                height: 100dvh !important;
+            }
+
+            #section-top > img {
+                object-position: 58% center;
+            }
+
+            #section-top > div[class*="left-16"][class*="bottom-32"] {
+                left: 24px !important;
+                right: 24px !important;
+                bottom: 176px !important;
+                max-width: none !important;
+            }
+
+            #section-top > div[class*="left-16"][class*="bottom-32"] h2 {
+                margin-bottom: 12px !important;
+                font-size: 15px !important;
+                line-height: 1.35 !important;
+            }
+
+            #section-top > div[class*="left-16"][class*="bottom-32"] h3 {
+                margin-bottom: 16px !important;
+                font-size: 30px !important;
+                line-height: 1.28 !important;
+                letter-spacing: 0.08em !important;
+            }
+
+            #section-top > div[class*="left-16"][class*="bottom-32"] p {
+                font-size: 12px !important;
+                line-height: 1.75 !important;
+            }
+
+            #section-top > div[class*="left-16"][class*="bottom-32"] p + p {
+                display: none !important;
+            }
+
+            #section-top > div[class*="right-8"][class*="bottom-32"] {
+                left: 24px !important;
+                right: 24px !important;
+                bottom: 106px !important;
+            }
+
+            #section-top > div[class*="right-8"][class*="bottom-32"] a {
+                width: 100%;
+                justify-content: space-between;
+                padding: 14px 16px !important;
+            }
+
+            body > div[class*="bottom-8"][class*="right-8"] {
+                left: 16px !important;
+                right: 16px !important;
+                bottom: 16px !important;
+                display: grid !important;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                gap: 10px !important;
+            }
+
+            body > div[class*="bottom-8"][class*="right-8"] > * {
+                min-width: 0;
+                justify-content: space-between;
+                gap: 10px !important;
+                padding: 14px 12px !important;
+            }
+
+            body > div[class*="bottom-8"][class*="right-8"] .font-medium {
+                font-size: 13px !important;
+                line-height: 1.2 !important;
+            }
+        }
     </style>
 </head>
 <body class="w-full h-screen overflow-hidden bg-[#111] text-white font-sans flex relative">
