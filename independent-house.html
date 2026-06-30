@@ -20,6 +20,35 @@
             display: none;
         }
 
+        .home-return-link {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 90;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(18, 18, 20, 0.72);
+            color: #fff;
+            font-size: 13px;
+            letter-spacing: 0.16em;
+            text-decoration: none;
+            backdrop-filter: blur(12px);
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .home-return-link:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.34);
+        }
+
+        .home-return-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
         @media (max-width: 768px) {
             html,
             body {
@@ -34,6 +63,21 @@
 
             body > nav {
                 display: none !important;
+            }
+
+            .home-return-link {
+                top: 24px;
+                left: 24px;
+                right: auto;
+                width: 40px;
+                height: 40px;
+                padding: 0;
+                justify-content: center;
+                background: rgba(0, 0, 0, 0.5);
+            }
+
+            .home-return-link span {
+                display: none;
             }
 
             #main-content {
@@ -110,6 +154,12 @@
     </style>
 </head>
 <body class="w-full h-screen overflow-hidden bg-[#111] text-white font-sans flex relative">
+    <a href="./" class="home-return-link" aria-label="返回主页">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>返回主页</span>
+    </a>
 
     <!-- ================= 左侧固定导航栏 (Fixed Left Sidebar) ================= -->
     <nav class="w-64 h-full flex-shrink-0 bg-gradient-to-r from-black/90 to-transparent backdrop-blur-sm flex flex-col justify-between py-8 pl-8 pr-4 z-50 relative border-r border-white/5">
