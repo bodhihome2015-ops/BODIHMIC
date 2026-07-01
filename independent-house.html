@@ -49,6 +49,11 @@
             height: 18px;
         }
 
+        .mobile-catalog-toggle,
+        .mobile-catalog-drawer {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             html,
             body {
@@ -80,9 +85,119 @@
                 display: none;
             }
 
+            .mobile-catalog-toggle {
+                position: fixed;
+                top: 24px;
+                right: 24px;
+                z-index: 100;
+                display: flex;
+                width: 40px;
+                height: 40px;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                background: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                backdrop-filter: blur(12px);
+            }
+
+            .mobile-catalog-drawer {
+                position: fixed;
+                left: 18px;
+                right: 18px;
+                top: 80px;
+                z-index: 95;
+                max-height: calc(100dvh - 112px);
+                overflow-y: auto;
+                border: 1px solid rgba(255, 255, 255, 0.14);
+                background: rgba(0, 0, 0, 0.86);
+                color: #fff;
+                box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+                backdrop-filter: blur(18px);
+            }
+
+            .mobile-catalog-drawer.is-open {
+                display: block;
+            }
+
+            .mobile-catalog-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 18px 18px 16px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            }
+
+            .mobile-catalog-title {
+                font-size: 15px;
+                letter-spacing: 0.2em;
+            }
+
+            .mobile-catalog-subtitle {
+                margin-top: 5px;
+                font-family: Georgia, serif;
+                font-size: 11px;
+                font-style: italic;
+                letter-spacing: 0.16em;
+                color: rgba(255, 255, 255, 0.55);
+                text-transform: uppercase;
+            }
+
+            .mobile-catalog-close {
+                font-size: 13px;
+                letter-spacing: 0.18em;
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            .mobile-catalog-list {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 14px;
+            }
+
+            .mobile-nav-btn {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                width: 100%;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.05);
+                padding: 14px 16px;
+                text-align: left;
+                color: rgba(255, 255, 255, 0.78);
+            }
+
+            .mobile-nav-btn.is-active {
+                border-color: rgba(255, 255, 255, 0.34);
+                background: rgba(255, 255, 255, 0.14);
+                color: #fff;
+            }
+
+            .mobile-nav-cn {
+                font-size: 15px;
+                letter-spacing: 0.16em;
+            }
+
+            .mobile-nav-en {
+                flex-shrink: 0;
+                font-family: Georgia, serif;
+                font-size: 10px;
+                font-style: italic;
+                letter-spacing: 0.16em;
+                color: rgba(255, 255, 255, 0.55);
+                text-transform: uppercase;
+            }
+
             #main-content {
                 width: 100vw !important;
                 height: 100dvh !important;
+            }
+
+            #main-content .content-section {
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch;
             }
 
             #section-top > img {
@@ -150,6 +265,122 @@
                 font-size: 13px !important;
                 line-height: 1.2 !important;
             }
+
+            #section-benefit,
+            #section-howto {
+                padding: 96px 24px 150px !important;
+            }
+
+            #section-benefit > img {
+                position: fixed !important;
+            }
+
+            #section-benefit > div[class*="left-16"],
+            #section-howto > div[class*="left-16"],
+            #section-howto > div[class*="right-32"] {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                width: 100% !important;
+                transform: none !important;
+                margin-bottom: 28px !important;
+            }
+
+            #section-benefit > div[class*="right-24"] {
+                position: relative !important;
+                top: auto !important;
+                right: auto !important;
+                width: 100% !important;
+                height: auto !important;
+                transform: none !important;
+                display: grid !important;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 12px;
+            }
+
+            #section-benefit > div[class*="right-24"] > div {
+                position: relative !important;
+                inset: auto !important;
+                width: 100% !important;
+                height: auto !important;
+                min-height: 150px;
+                border-radius: 14px !important;
+                transform: none !important;
+            }
+
+            #section-howto > .grid {
+                position: fixed !important;
+                inset: 0 !important;
+                height: 100dvh !important;
+            }
+
+            #section-howto .howto-step-btn {
+                padding: 16px !important;
+                gap: 12px !important;
+            }
+
+            #section-exterior,
+            #section-quality {
+                flex-direction: column !important;
+                padding-bottom: 150px !important;
+            }
+
+            #section-exterior > div,
+            #section-quality > div {
+                width: 100% !important;
+                min-height: auto !important;
+                padding: 24px !important;
+            }
+
+            #section-exterior > div:first-child,
+            #section-quality > div:first-of-type {
+                padding-top: 96px !important;
+                padding-bottom: 32px !important;
+            }
+
+            #section-exterior .grid,
+            #section-quality .grid {
+                grid-template-columns: minmax(0, 1fr) !important;
+                gap: 18px !important;
+                margin-top: 0 !important;
+            }
+
+            #section-quality > div[class*="top-8"] {
+                position: relative !important;
+                top: auto !important;
+                right: auto !important;
+                padding: 96px 24px 0 !important;
+                font-size: 20px !important;
+            }
+
+            #section-plan .plan-sub-section,
+            #section-plus .plus-sub-section {
+                flex-direction: column !important;
+                overflow-y: auto !important;
+                padding-top: 72px !important;
+                padding-bottom: 150px !important;
+            }
+
+            #section-plan .plan-sub-section > div,
+            #section-plus .plus-sub-section > div {
+                width: 100% !important;
+                min-height: auto !important;
+                padding: 24px !important;
+            }
+
+            #section-interior .grid {
+                grid-template-columns: minmax(0, 1fr) !important;
+                grid-template-rows: none !important;
+                height: auto !important;
+                min-height: 100dvh;
+                padding-top: 72px;
+                padding-bottom: 150px;
+            }
+
+            #section-interior .grid > div {
+                min-height: 260px;
+            }
         }
     </style>
 </head>
@@ -162,6 +393,55 @@
     </a>
 
     <!-- ================= 左侧固定导航栏 (Fixed Left Sidebar) ================= -->
+    <button type="button" class="mobile-catalog-toggle" aria-label="打开栏目导航" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="mobile-catalog-drawer" aria-hidden="true">
+        <div class="mobile-catalog-header">
+            <div>
+                <div class="mobile-catalog-title">栏目导航</div>
+                <div class="mobile-catalog-subtitle">Catalog Sections</div>
+            </div>
+            <button type="button" class="mobile-catalog-close">关闭</button>
+        </div>
+        <div class="mobile-catalog-list">
+            <button type="button" data-id="top" class="mobile-nav-btn is-active">
+                <span class="mobile-nav-cn">概述</span>
+                <span class="mobile-nav-en">Top</span>
+            </button>
+            <button type="button" data-id="benefit" class="mobile-nav-btn">
+                <span class="mobile-nav-cn">核心优势</span>
+                <span class="mobile-nav-en">Core Benefits</span>
+            </button>
+            <button type="button" data-id="howto" class="mobile-nav-btn">
+                <span class="mobile-nav-cn">如何实现</span>
+                <span class="mobile-nav-en">How to achieve</span>
+            </button>
+            <button type="button" data-id="plan" class="mobile-nav-btn">
+                <span class="mobile-nav-cn">步骤01 平面规划</span>
+                <span class="mobile-nav-en">Step01 Plan</span>
+            </button>
+            <button type="button" data-id="exterior" class="mobile-nav-btn">
+                <span class="mobile-nav-cn">步骤02 室外方案</span>
+                <span class="mobile-nav-en">Step02 Exterior</span>
+            </button>
+            <button type="button" data-id="interior" class="mobile-nav-btn">
+                <span class="mobile-nav-cn">步骤03 内部空间</span>
+                <span class="mobile-nav-en">Step03 Interior</span>
+            </button>
+            <button type="button" data-id="plus" class="mobile-nav-btn">
+                <span class="mobile-nav-cn">步骤04 增值服务</span>
+                <span class="mobile-nav-en">Step04 Plus up item</span>
+            </button>
+            <button type="button" data-id="quality" class="mobile-nav-btn">
+                <span class="mobile-nav-cn">品质与保障</span>
+                <span class="mobile-nav-en">Quality & Guarantee</span>
+            </button>
+        </div>
+    </div>
+
     <nav class="w-64 h-full flex-shrink-0 bg-gradient-to-r from-black/90 to-transparent backdrop-blur-sm flex flex-col justify-between py-8 pl-8 pr-4 z-50 relative border-r border-white/5">
         <!-- Top Logo -->
         <div class="tracking-widest font-bold text-xl uppercase font-serif">
@@ -1247,6 +1527,17 @@
         document.addEventListener('DOMContentLoaded', () => {
             const navButtons = document.querySelectorAll('.nav-btn');
             const sections = document.querySelectorAll('.content-section');
+            const mobileCatalogToggle = document.querySelector('.mobile-catalog-toggle');
+            const mobileCatalogDrawer = document.querySelector('.mobile-catalog-drawer');
+            const mobileCatalogClose = document.querySelector('.mobile-catalog-close');
+            const mobileNavButtons = document.querySelectorAll('.mobile-nav-btn');
+
+            function setMobileCatalogOpen(isOpen) {
+                if (!mobileCatalogToggle || !mobileCatalogDrawer) return;
+                mobileCatalogDrawer.classList.toggle('is-open', isOpen);
+                mobileCatalogDrawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+                mobileCatalogToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
 
             // --- 内部页面 (Interior) 滑动切换状态 ---
             const interiorSection = document.getElementById('section-interior');
@@ -1294,6 +1585,10 @@
                     }
                 });
 
+                mobileNavButtons.forEach(btn => {
+                    btn.classList.toggle('is-active', btn.getAttribute('data-id') === targetId);
+                });
+
                 // 更新主要内容区域显示 (幻灯片效果)
                 sections.forEach(section => {
                     if (section.id === `section-${targetId}`) {
@@ -1326,6 +1621,27 @@
                 btn.addEventListener('click', () => {
                     const targetId = btn.getAttribute('data-id');
                     switchSection(targetId);
+                });
+            });
+
+            if (mobileCatalogToggle) {
+                mobileCatalogToggle.addEventListener('click', () => {
+                    const isOpen = mobileCatalogToggle.getAttribute('aria-expanded') !== 'true';
+                    setMobileCatalogOpen(isOpen);
+                });
+            }
+
+            if (mobileCatalogClose) {
+                mobileCatalogClose.addEventListener('click', () => {
+                    setMobileCatalogOpen(false);
+                });
+            }
+
+            mobileNavButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetId = btn.getAttribute('data-id');
+                    switchSection(targetId);
+                    setMobileCatalogOpen(false);
                 });
             });
 
