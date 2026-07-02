@@ -365,7 +365,7 @@
                 inset: auto !important;
                 transform: none !important;
                 flex-direction: column !important;
-                overflow-y: auto !important;
+                overflow: visible !important;
                 padding-top: 72px !important;
                 padding-bottom: 150px !important;
             }
@@ -402,10 +402,91 @@
                 justify-content: flex-start !important;
             }
 
+            #section-plan .plan-sub-section>div:nth-child(2) {
+                height: auto !important;
+                overflow: visible !important;
+                justify-content: flex-start !important;
+                padding-bottom: 220px !important;
+            }
+
+            #section-plan .plan-sub-section>div:nth-child(2)>div {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            #section-plan .plan-sub-section>div:nth-child(2)>div:nth-child(2) {
+                flex-direction: column !important;
+                gap: 24px !important;
+            }
+
+            #section-plan .plan-sub-section>div:nth-child(2)>div:nth-child(2)>div {
+                width: 100% !important;
+            }
+
+            #section-plan .plan-sub-section>div:nth-child(2)>div:nth-child(2) .absolute {
+                position: static !important;
+                width: 100% !important;
+                margin-top: 8px !important;
+                border-left-width: 2px !important;
+                transform: none !important;
+            }
+
             #section-plan .plan-sub-section img,
             #section-plus .plus-sub-section img {
                 max-width: 100% !important;
                 height: auto !important;
+            }
+
+            #section-plan .plan-sub-section>div:nth-child(2)>div:nth-child(2) img {
+                opacity: 1 !important;
+            }
+
+            #section-plan>div.absolute.right-0 {
+                position: fixed !important;
+                left: 16px !important;
+                right: 16px !important;
+                top: auto !important;
+                bottom: 106px !important;
+                z-index: 85 !important;
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: stretch !important;
+                gap: 8px !important;
+                overflow-x: auto !important;
+                padding: 8px !important;
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                background: rgba(10, 10, 12, 0.82);
+                backdrop-filter: blur(16px);
+                transform: none !important;
+            }
+
+            #section-plan .plan-nav-btn {
+                flex: 0 0 auto !important;
+                width: auto !important;
+                height: auto !important;
+                justify-content: center !important;
+            }
+
+            #section-plan .plan-nav-btn .nav-pill {
+                position: static !important;
+                right: auto !important;
+                opacity: 1 !important;
+                transform: none !important;
+                pointer-events: auto !important;
+                border-radius: 0 !important;
+                padding: 10px 14px !important;
+                background: rgba(255, 255, 255, 0.08) !important;
+                color: rgba(255, 255, 255, 0.72) !important;
+                white-space: nowrap !important;
+            }
+
+            #section-plan .plan-nav-btn.is-active .nav-pill {
+                background: #fff !important;
+                color: #111 !important;
+            }
+
+            #section-plan .plan-nav-btn .nav-letter {
+                display: none !important;
             }
 
             #section-interior .grid {
@@ -1233,7 +1314,7 @@
             <div
                 class="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-12 font-serif italic text-xl pr-8 items-end z-40 text-gray-400">
                 <!-- 方案 1 -->
-                <button class="plan-nav-btn cursor-pointer relative flex items-center justify-end h-10 w-32 group"
+                <button class="plan-nav-btn is-active cursor-pointer relative flex items-center justify-end h-10 w-32 group"
                     data-index="0">
                     <span
                         class="nav-pill absolute right-[-2rem] bg-[#2a2a30] text-white px-6 py-2 rounded-l-full shadow-lg text-sm not-italic flex items-center border border-white/10 transition-all duration-500 opacity-100 translate-x-0">方案1
@@ -2194,6 +2275,7 @@
                 planNavBtns.forEach((btn, idx) => {
                     const pill = btn.querySelector('.nav-pill');
                     const letter = btn.querySelector('.nav-letter');
+                    btn.classList.toggle('is-active', idx === targetIndex);
                     if (idx === targetIndex) {
                         pill.classList.remove('opacity-0', 'translate-x-8', 'pointer-events-none');
                         pill.classList.add('opacity-100', 'translate-x-0');
@@ -2224,6 +2306,7 @@
 
             // 监听“平面规划”页面的滚轮事件触发滑动
             planSection.addEventListener('wheel', (e) => {
+                if (window.matchMedia('(max-width: 768px)').matches) return;
                 if (isPlanScrolling) return;
 
                 if (e.deltaY > 30) {
