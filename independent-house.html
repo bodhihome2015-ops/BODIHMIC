@@ -57,6 +57,62 @@
             display: none;
         }
 
+        .plan-image-carousel {
+            position: relative;
+            overflow: hidden;
+            background: #111;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .plan-image-carousel-track {
+            display: flex;
+            width: 200%;
+            animation: planImageSlide 8s ease-in-out infinite;
+        }
+
+        .plan-image-carousel img {
+            width: 50%;
+            height: auto;
+            flex: 0 0 50%;
+            object-fit: cover;
+        }
+
+        .plan-image-carousel-dots {
+            position: absolute;
+            left: 18px;
+            bottom: 16px;
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .plan-image-carousel-dots span {
+            width: 22px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        .plan-image-carousel-dots span:first-child {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        @keyframes planImageSlide {
+
+            0%,
+            42% {
+                transform: translateX(0);
+            }
+
+            50%,
+            92% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
         @media (max-width: 768px) {
 
             html,
@@ -908,11 +964,20 @@
                 class="plan-sub-section absolute inset-0 flex transition-all duration-1000 ease-in-out opacity-100 translate-x-0 z-10">
                 <div class="w-[40%] bg-[#1a1a1c] relative p-16 flex flex-col justify-end">
                     <div class="absolute top-1/4 left-0 w-full px-8">
-                        <img src="assets/4-1-1.png" alt="House Exterior 1" class="w-full h-auto shadow-2xl" />
+                        <div class="plan-image-carousel">
+                            <div class="plan-image-carousel-track">
+                                <img src="assets/plan-a01008602-01.png" alt="A01008602 二层住宅外观方案 1" />
+                                <img src="assets/plan-a01008602-02.png" alt="A01008602 二层住宅外观方案 2" />
+                            </div>
+                            <div class="plan-image-carousel-dots" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="z-20 relative">
-                        <h3 class="text-xl font-serif italic text-gray-400 mb-2">Yosemune / 平也</h3>
-                        <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">不知不觉家人聚集，<br />为客厅增加免费空间。</h2>
+                        <h3 class="text-xl font-serif italic text-gray-400 mb-2">编号A01008602 / 二层住宅</h3>
+                        <h2 class="text-3xl font-light tracking-widest leading-snug mb-6">扩大的不仅是家的公共区域<br />更是家人之间的社交场域</h2>
                         <p class="text-sm text-gray-400 leading-loose">
                             在明亮的LDK朝南，有一个宽敞的多角区域，家庭可以<br />在这里享受自由创意。<br />
                             有了充足的储物空间，你可以过上美好舒适的生活。
